@@ -5,13 +5,14 @@ import Launch from "./models/launches.model.js";
 import launchRoutes from './routes/launch.route.js'
 
 const app = express();
+const PORT = ProcessingInstruction.env.PORT || 3001
 
 app.use(express.json());
 
 app.use('/api/launch', launchRoutes);
 
-app.listen(3000, async () => {
+app.listen(PORT, async () => {
     await connectDB();
-    console.log("Server started on port 3000.");
+    console.log(`Server started: Http://localhost:${PORT}`);
 });
 
