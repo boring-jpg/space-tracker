@@ -69,6 +69,13 @@ export const updateLaunches = async (req, res) => {
 };
 export const deleteLaunches = async (req, res) => {
     const {id} = req.params;
+
+    if(!Mongoose.Types.ObjectID.isValid(id)){
+        return res.status(404).json({
+            success: false,
+            message: "Invalid ID"
+        });
+    };
     
     try{
         await Launch.findByIdAndDelete(id);
@@ -78,9 +85,9 @@ export const deleteLaunches = async (req, res) => {
         });
     } catch (error) {
         console.error("Error:", error);
-        res.status(404).json({
+        res.status(500).json({
             success: false,
-            message: "Product not Found"
+            message: "Server Error"
         });
     };
 };
