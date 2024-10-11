@@ -1,17 +1,18 @@
 import React, {useState, useEffect} from 'react';
+import Countdown from './Countdown.jsx'
 
 function LaunchCards(){
     
     const lldevAPI = "https://lldev.thespacedevs.com/2.3.0/launches/upcoming/"
     const [launchData, setLaunchData] = useState([]);
-    
+
     const getLaunchData = async () => {
         try{
             const call = await fetch(lldevAPI);
             if(!call.ok){
                 throw new Error("Error")
             };
-
+            
             const result = await call.json()
             return result.results;
 
@@ -20,6 +21,7 @@ function LaunchCards(){
         };
     };
 
+    // Launch cards on initial mount.
     useEffect(() => {
         const fetchLaunchData = async () => {
             const data = await getLaunchData();
@@ -27,19 +29,22 @@ function LaunchCards(){
         };
         fetchLaunchData();
     }, []);
-
+    
     return (
 
-        <div>
+        <div className='card-container'>
             {launchData.map((launch) => (
                 <div key = {launch.id} className="card">
-                    <img src={launch.image.image_url} alt={launch.name} className="card-image"></img>
-                    <h2 className="card-title">{launch.name}</h2>
+                    <img src={launch.image.thumbnail_url} alt={launch.name} className="card-image"></img>            
+                    <h2 className="card-title">{launch.rocket.configuration.full_name}</h2>
+                    <p className="card-company">{launch.launch_service_provider.name}</p>
+                    <div className='card-info-container'>
+                        <Countdown net={launch.net} />
+                    </div>
+                    <p className='card-location'><a href={launch.pad.wiki_url}>{launch.pad.location.name}</a></p>
                 </div>
             ))}
-        
         </div>
-        
     );
 }
 
