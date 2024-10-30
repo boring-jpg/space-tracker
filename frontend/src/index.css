@@ -1,6 +1,46 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+
 :root {
   --primary-font: Arial, Helvetica, sans-serif;
+}
+
+.nav {
+  background-color: #333;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.site-name{
+  font-size:2rem;
+}
+
+.nav ul{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav li.active {
+  background-color: #555;
+}
+
+.nav li:hover {
+  background-color: #777;
+
+}
+
+.nav a{
+  color: inherit;
+  text-decoration: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .card-container {
@@ -9,9 +49,10 @@
 }
 
 .card {
+  border: 1px solid hsl(0, 2%, 46%);
+  border-radius: 20px;
   background-color: white;
 }
-
 .card .card-countdown {
   font-family: var(--primary-font);
   font-size: x-large;
@@ -20,7 +61,7 @@
 
 .card .card-company {
   margin: 10px;
-  font-family: 'Courier New';
+  font-family: "Courier New";
   font-family: bold;
   font-size: x-large;
 }
@@ -31,7 +72,7 @@
   color: black;
 }
 
-.card .card-text{
+.card .card-text {
   font-family: var(--primary-font);
   color: gray;
 }
@@ -39,13 +80,12 @@
 .card .card-location {
   font-family: var(--primary-font);
   margin: auto;
-
 }
 
+
 /* Desktop Styles */
-@media screen and (min-width: 768px) {
-  
-  body{
+@media screen and (min-width: 911px) {
+  body {
     background-image: url(https://upload.wikimedia.org/wikipedia/commons/c/c1/Messier_041_2MASS.jpg);
     background-size: cover;
   }
@@ -60,39 +100,74 @@
   }
 
   .card{
-      border: 1px solid hsl(0, 2%, 46%);
-      border-radius: 20px;
-      box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
-      margin: 10px;
-      text-align: center;
-      width: 40%;
-      min-height: 488px;
-      max-height: 550px;
-      display: inline-block;
+  box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
+  margin: 10px;
+  text-align: center;
+  width: 40%;
+  min-height: 488px;
+  max-height: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   }
-
-  .card .card-image{
+  .card .card-image {
     max-width: 100%;
-    margin: 10px;
-    padding: 5px;
+    margin: auto;
+    padding: .5rem;
     background-color: black;
     height: auto;
     border-radius: 50%;
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
   }
-
-  .card .card-info-container{
+  .card .card-info-container {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 768px) and (max-width: 910px){
   body {
-    margin:0;
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/c/c1/Messier_041_2MASS.jpg);
+    background-size: cover;
+  }
+  .card .card-image {
+    max-width: 100%;
+    margin: 1rem auto;
+    padding: .5rem;
+    background-color: black;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 1rem;
   }
   .card-container{
+    width: 90vw;
+    border-radius: 20px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .card {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-height: 550px;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+/* mobile styles */
+@media screen and (max-width: 767px) {
+  body {
+    margin: 0;
+  }
+  .card-container {
     width: 100vw;
     margin: 0;
     display: flex;
@@ -102,18 +177,18 @@
     align-items: center;
   }
 
-  .card{
-      border: 1px solid hsl(0, 2%, 46%);
-      border-radius: 20px;
-      box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
-      margin: 10px;
-      text-align: center;
-      max-width: 250px;
-      max-height: 550px;
-      display: inline-block;
+  .card {
+    border: 1px solid hsl(0, 2%, 46%);
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
+    margin: 10px;
+    text-align: center;
+    max-width: 250px;
+    max-height: 550px;
+    display: inline-block;
   }
 
-  .card .card-image{
+  .card .card-image {
     max-width: 100%;
     margin: 0;
     height: auto;
@@ -130,4 +205,3 @@
     margin: 10px;
   }
 }
-
