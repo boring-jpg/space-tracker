@@ -18,7 +18,6 @@ function App() {
   return (
     <>
       <Navbar />
-
       {component}
     </>
   );

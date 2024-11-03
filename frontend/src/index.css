@@ -4,6 +4,11 @@
   --primary-font: Arial, Helvetica, sans-serif;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .nav {
   background-color: #333;
   color: white;
@@ -45,7 +50,7 @@
 
 .card-container {
   background-color: hsla(0, 3%, 15%, 0.8);
-  margin: auto;
+  /* margin: auto; */
 }
 
 .card {
@@ -90,6 +95,7 @@
     background-size: cover;
   }
   .card-container{
+    margin: 1rem auto;
     width: 80vw;
     border-radius: 20px;
     display: flex;
@@ -98,6 +104,7 @@
     justify-content: center;
     align-items: center;
   }
+
 
   .card{
   box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
@@ -126,6 +133,7 @@
   }
 }
 
+/* Tablet Styles */
 @media screen and (min-width: 768px) and (max-width: 910px){
   body {
     background-image: url(https://upload.wikimedia.org/wikipedia/commons/c/c1/Messier_041_2MASS.jpg);
@@ -140,10 +148,16 @@
     border-radius: 50%;
     margin-bottom: 1rem;
   }
+  .card-company{
+    text-align: center;
+  }
+  .card-location{
+    text-align: center;
+  }
   .card-container{
+    margin: 1rem auto 1rem auto;
     width: 90vw;
     border-radius: 20px;
-    margin: auto;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -152,6 +166,7 @@
   }
   
   .card {
+    margin: 1rem auto 1rem auto;
     width: 60%;
     display: flex;
     flex-direction: column;
