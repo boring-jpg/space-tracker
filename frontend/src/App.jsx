@@ -1,5 +1,4 @@
 import LaunchCards from "./pages/LaunchCards/LaunchCard.jsx";
-import Spacer from "./Spacer.jsx";
 import Navbar from "./Navbar.jsx";
 import About from "./pages/about.jsx";
 
