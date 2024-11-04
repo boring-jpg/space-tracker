@@ -19,11 +19,11 @@
   padding: 0 1rem;
 }
 
-.site-name{
-  font-size:2rem;
+.site-name {
+  font-size: 2rem;
 }
 
-.nav ul{
+.nav ul {
   padding: 0;
   margin: 0;
   list-style: none;
@@ -37,10 +37,9 @@
 
 .nav li:hover {
   background-color: #777;
-
 }
 
-.nav a{
+.nav a {
   color: inherit;
   text-decoration: none;
   height: 100%;
@@ -87,14 +86,13 @@
   margin: auto;
 }
 
-
 /* Desktop Styles */
 @media screen and (min-width: 911px) {
   body {
     background-image: url(https://upload.wikimedia.org/wikipedia/commons/c/c1/Messier_041_2MASS.jpg);
     background-size: cover;
   }
-  .card-container{
+  .card-container {
     margin: 1rem auto;
     width: 80vw;
     border-radius: 20px;
@@ -105,22 +103,21 @@
     align-items: center;
   }
 
-
-  .card{
-  box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
-  margin: 10px;
-  text-align: center;
-  width: 40%;
-  min-height: 488px;
-  max-height: 550px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  .card {
+    box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
+    margin: 10px;
+    text-align: center;
+    width: 40%;
+    min-height: 488px;
+    max-height: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   .card .card-image {
     max-width: 100%;
     margin: auto;
-    padding: .5rem;
+    padding: 0.5rem;
     background-color: black;
     height: auto;
     border-radius: 50%;
@@ -134,7 +131,7 @@
 }
 
 /* Tablet Styles */
-@media screen and (min-width: 768px) and (max-width: 910px){
+@media screen and (min-width: 768px) and (max-width: 910px) {
   body {
     background-image: url(https://upload.wikimedia.org/wikipedia/commons/c/c1/Messier_041_2MASS.jpg);
     background-size: cover;
@@ -142,19 +139,19 @@
   .card .card-image {
     max-width: 100%;
     margin: 1rem auto;
-    padding: .5rem;
+    padding: 0.5rem;
     background-color: black;
     height: auto;
     border-radius: 50%;
     margin-bottom: 1rem;
   }
-  .card-company{
+  .card-company {
     text-align: center;
   }
-  .card-location{
+  .card-location {
     text-align: center;
   }
-  .card-container{
+  .card-container {
     margin: 1rem auto 1rem auto;
     width: 90vw;
     border-radius: 20px;
@@ -164,7 +161,7 @@
     align-items: center;
     gap: 1rem;
   }
-  
+
   .card {
     margin: 1rem auto 1rem auto;
     width: 60%;
