@@ -1,23 +1,20 @@
 import LaunchCards from "./pages/LaunchCards/LaunchCard.jsx";
 import Navbar from "./Navbar.jsx";
 import About from "./pages/about.jsx";
+import LaunchDetails from "./pages/LaunchDetails.jsx";
+import {Route, Routes} from "react-router-dom";
 
 function App() {
-  let component;
-
-  switch (window.location.pathname) {
-    case "/":
-      component = <LaunchCards />;
-      break;
-    case "/about":
-      component = <About />;
-      break;
-  }
-  
   return (
     <>
       <Navbar />
-      {component}
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<LaunchCards />} />
+          <Route path="/launch/:id" element={<LaunchDetails />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </div>
     </>
   );
 }
