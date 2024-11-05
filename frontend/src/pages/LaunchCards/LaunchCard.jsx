@@ -18,7 +18,7 @@ function LaunchCards() {
   return (
     <div className="card-container">
       {launchData.map((launch) => (
-        <Link to={`/launch/${launch.id}`} key={launch.id} className="card">
+        <Link to={`/launch/${launch.id}/`} key={launch.id} className="card">
           <img
             src={launch.image.thumbnail_url}
             alt={launch.name}
