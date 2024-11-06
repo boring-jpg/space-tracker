@@ -8,13 +8,13 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className="container">
+      <>
         <Routes>
           <Route path="/" element={<LaunchCards />} />
           <Route path="/launch/:id" element={<LaunchDetails />} />
           <Route path="/about" element={<About />} />
         </Routes>
-      </div>
+      </>
     </>
   );
 }
