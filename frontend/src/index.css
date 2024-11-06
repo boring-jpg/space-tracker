@@ -2,21 +2,152 @@
 
 :root {
   --primary-font: Arial, Helvetica, sans-serif;
+  --site-background: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F003%2F375%2F985%2Foriginal%2Fspace-galaxy-background-free-vector.jpg&f=1&nofb=1&ipt=cdf14f5567f638ddbe77cc0343164c2f6cc9d9819c9652aa9d47ed2b4045f14d&ipo=images);
+  --page-background: hsla(0, 16%, 85%, 0.5);
 }
 
 * {
   margin: 0;
   padding: 0;
+  font-family: var(--primary-font);
 }
 .launch-detail-container {
+  height: 100%;
+  width: 80%;
+  padding: 1rem;
+  border-radius: 5%;
+  background-color: var(--page-background);
+  margin: 1rem auto;
+}
+
+.lauch-detail-info {
+  width: 100%;
+  height: 25vw;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+}
+
+.launch-detail-info-text {
+  width: 50%;
+  height: 100%;
+  font-size: xx-large;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  text-align: center;
+}
+
+.launch-detail-image {
+  padding: 0.5rem;
+  background-color: black;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  margin: auto;
+}
+
+.launch-detail-mission {
+  height: 35vh;
+  width: 100%;
+  margin: 2rem auto;
+  font-size: larger;
+}
+
+.launch-detail-agency {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.launch-detail-agency-logo {
+  width: 10rem;
+}
+
+.launch-detail-video {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #555;
+  padding: 1rem;
+  margin: 1rem auto;
+  width: 90%;
+  height: 100%;
+}
+
+.launch-detail-mission > h2 {
+  text-align: center;
+  font-size: xx-large;
+}
+
+.launch-detail-mission > p {
+  margin: 1rem;
+  text-align: center;
+}
+
+.launch-details-map-image {
+  padding: 0.5rem;
+  background-color: black;
+  border-radius: 20%;
+  margin: auto;
+  width: 20rem;
+}
+
+.launch-detail-info-location {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: auto;
+}
+
+.launch-detail-info-location a {
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+
+.launch-detail-update {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  border: 5px solid black;
+  border-radius: 5%;
+  height: 20rem;
+  width: 30%;
+}
+
+.launch-detail-update-text {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 3rem;
-  height: 100%;
-  width: 80%;
-  background-color: white;
+  gap: 2rem;
+}
+
+.launch-detail-update-text p {
+  font-size: x-large;
+  text-align: center;
+}
+
+.launch-detail-update-image {
+  width: 10rem;
+  padding: 0.2rem;
+  background-color: black;
+  border-radius: 60%;
+}
+.launch-detail-update-container {
   margin: 1rem auto;
+  width: 80vw;
+  border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 1rem;
+  align-items: center;
 }
 
 .nav {
@@ -58,7 +189,7 @@
 }
 
 .card-container {
-  background-color: hsla(0, 3%, 15%, 0.8);
+  background-color: var(--page-background);
   /* margin: auto; */
 }
 
@@ -99,8 +230,7 @@
 /* Desktop Styles */
 @media screen and (min-width: 911px) {
   body {
-    background-image: url(https://upload.wikimedia.org/wikipedia/commons/c/c1/Messier_041_2MASS.jpg);
-    background-size: cover;
+    background-image: var(--site-background);
   }
   .card-container {
     margin: 1rem auto;
@@ -143,7 +273,7 @@
 /* Tablet Styles */
 @media screen and (min-width: 768px) and (max-width: 910px) {
   body {
-    background-image: url(https://upload.wikimedia.org/wikipedia/commons/c/c1/Messier_041_2MASS.jpg);
+    background-image: var(--site-background);
     background-size: cover;
   }
   .card .card-image {
