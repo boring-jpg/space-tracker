@@ -1,9 +1,15 @@
 @charset "UTF-8";
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
  :root {
      --primary-font: Arial, Helvetica, sans-serif;
      --site-background: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F003%2F375%2F985%2Foriginal%2Fspace-galaxy-background-free-vector.jpg&f=1&nofb=1&ipt=cdf14f5567f638ddbe77cc0343164c2f6cc9d9819c9652aa9d47ed2b4045f14d&ipo=images);
      --page-background: hsla(0, 16%, 85%, 0.5);
 }
+
  * {
      box-sizing: border-box;
      margin: 0;
@@ -41,6 +47,19 @@
      height: 100%;
      display: flex;
      align-items: center;
+}
+/* Loading */
+.loading {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #3498db; 
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  position: fixed;  
+  top: 49%;         
+  left: 49%;        
+  transform: translate(-50%, -50%);  
 }
  .card-container {
      background-color: var(--page-background);
@@ -81,6 +100,7 @@
      body {
          background-image: var(--site-background);
     }
+    
     /* launch_details page */
      .launch-detail-container {
          display: flex;

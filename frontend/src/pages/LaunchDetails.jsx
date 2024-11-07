@@ -1,6 +1,7 @@
 import {useState, useEffect} from "react";
 import getLaunchData from "../api/lldev_calls";
 import Countdown from "./LaunchCards/Countdown.jsx";
+import Loading from "./loading.jsx";
 
 function LaunchDetails() {
   const [launchDetail, setLaunchDetails] = useState(null);
@@ -23,7 +24,7 @@ function LaunchDetails() {
     fetchLaunchData();
   }, []);
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <Loading />;
 
   return (
     <main className="launch-detail-container">
