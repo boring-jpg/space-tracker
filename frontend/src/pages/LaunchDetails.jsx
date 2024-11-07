@@ -88,24 +88,23 @@ function LaunchDetails() {
         ))}
       </section>
 
-      <section className="launch-detail-updates">
-        <div className="launch-detail-update-container">
-          {launchDetail.updates.map((update) => (
-            <article className="launch-detail-update" key={update.id}>
-              <img
-                className="launch-detail-update-image"
-                src={update.profile_image}
-                alt={"Photo of" + update.created_by}
-              ></img>
-              <div className="launch-detail-update-text">
-                <p>{update.comment}</p>
-                <p>
-                  {update.created_by} | {update.created_on}
-                </p>
-              </div>
-            </article>
-          ))}
-        </div>
+      
+      <section className="launch-detail-update-container">
+        {launchDetail.updates.map((update) => (
+          <article className="launch-detail-update" key={update.id}>
+            <img
+              className="launch-detail-update-image"
+              src={update.profile_image}
+              alt={"Photo of" + update.created_by}
+            ></img>
+            <div className="launch-detail-update-text">
+              <p>{update.comment}</p>
+              <p>
+                {update.created_by} | {update.created_on}
+              </p>
+            </div>
+          </article>
+        ))}
       </section>
     </main>
   );
