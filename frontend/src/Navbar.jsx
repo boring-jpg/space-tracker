@@ -17,7 +17,7 @@ function Navbar() {
         Space-Tracker
       </a>
       <ul>
-        <CustomLink href="/about">About</CustomLink>
+        <CustomLink href="/about/">About</CustomLink>
       </ul>
     </nav>
   );

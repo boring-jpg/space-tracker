@@ -8,13 +8,11 @@ function App() {
   return (
     <>
       <Navbar />
-      <>
         <Routes>
           <Route path="/" element={<LaunchCards />} />
           <Route path="/launch/:id" element={<LaunchDetails />} />
           <Route path="/about" element={<About />} />
         </Routes>
-      </>
     </>
   );
 }
