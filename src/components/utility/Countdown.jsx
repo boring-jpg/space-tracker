@@ -35,7 +35,7 @@ function Countdown(props) {
       {padZero(seconds)}{" "}
     </p>
   ) : (
-    <p>Launched @ {props.net}</p>
+    <p className="card-countdown">Launched on {countdownDate.toLocaleDateString()}</p>
   );
 }
 
