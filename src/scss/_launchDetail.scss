@@ -86,7 +86,9 @@
         width: 100%;
 
         &-logo {
-            width: 10rem;
+            max-width: 80vw;
+            height: auto;
+            margin-top: 1rem;
         }
     }
 
