@@ -1,7 +1,9 @@
-@import 'config', 'launchDetail', 'launchCard';
+@import 'config', 'loading', 'launchDetail', 'launchCard';
 
 body {
-    background-color: $secondaryColor;
+    background: $backgroundImage fixed
+
+
 }
 
 .nav {

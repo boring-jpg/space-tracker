@@ -2,56 +2,140 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-@keyframes spin {
+@keyframes rotate {
   0% {
-    transform: rotate(0deg);
+    transform: translate(-50%, -50%) rotateZ(0deg);
   }
   100% {
-    transform: rotate(360deg);
+    transform: translate(-50%, -50%) rotateZ(360deg);
   }
 }
+@keyframes rotateccw {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+@keyframes spin {
+  0%,
+  100% {
+    box-shadow: 0.2em 0px 0 0px currentcolor;
+  }
+  12% {
+    box-shadow: 0.2em 0.2em 0 0 currentcolor;
+  }
+  25% {
+    box-shadow: 0 0.2em 0 0px currentcolor;
+  }
+  37% {
+    box-shadow: -0.2em 0.2em 0 0 currentcolor;
+  }
+  50% {
+    box-shadow: -0.2em 0 0 0 currentcolor;
+  }
+  62% {
+    box-shadow: -0.2em -0.2em 0 0 currentcolor;
+  }
+  75% {
+    box-shadow: 0px -0.2em 0 0 currentcolor;
+  }
+  87% {
+    box-shadow: 0.2em -0.2em 0 0 currentcolor;
+  }
+}
+.loading-page {
+  width: 100vw;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading {
+  transform: rotateZ(45deg);
+  perspective: 1000px;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  color: #fff;
+  position: fixed;
+}
+.loading:before,
+.loading:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+  transform: rotateX(70deg);
+  animation: 1s spin linear infinite;
+}
+.loading:after {
+  color: #ff3d00;
+  transform: rotateY(70deg);
+  animation-delay: 0.4s;
+}
+
 .launch-detail {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  width: 95%;
+  align-items: center;
+  width: 80vw;
   padding: 1rem;
   margin: 1rem auto;
+  background-color: hsla(0, 3%, 23%, 0.6);
+  backdrop-filter: blur(4px);
+  border-radius: 30px;
 }
 .launch-detail-info {
-  width: 100%;
+  width: 60vw;
   height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+.launch-detail-info h1 {
+  font-size: 8vw;
+}
 .launch-detail-info-text {
-  width: 100vw;
+  width: 80vw;
   height: auto;
   display: flex;
   flex-direction: column;
-  color: #000;
-  font-size: larger;
+  color: #fff;
   text-align: center;
   margin: 2rem;
   gap: 1rem;
 }
 .launch-detail-info-text p.card-countdown {
-  font-size: xx-large;
+  font-size: 7vw;
   font-weight: bolder;
   color: #fff;
 }
 .launch-detail-info-text-wiki a {
+  font-size: 5.5vw;
   text-decoration: none;
-  color: #000;
+  color: #fff;
+}
+.launch-detail-info-text-location {
+  font-size: 5.5vw;
+  max-width: 60vw;
+  margin: auto;
 }
 .launch-detail-info-image {
+  width: 60vw;
+  max-width: 350px;
   height: auto;
   padding: 0.2rem;
   background-color: black;
-  margin: auto;
 }
 .launch-detail-info-location a {
   text-align: center;
@@ -59,7 +143,7 @@
   color: black;
 }
 .launch-detail-info-location-image {
-  max-width: 90vw;
+  max-width: 60vw;
   height: auto;
   padding: 0.2rem;
   background-color: black;
@@ -72,13 +156,15 @@
 }
 .launch-detail-mission h2 {
   text-align: center;
-  font-size: xx-large;
+  font-size: 8vw;
+  color: #fff;
 }
 .launch-detail-mission p {
   padding-top: 1rem;
   text-align: center;
-  font-size: larger;
+  font-size: 6vw;
   line-height: 1.5;
+  color: #fff;
 }
 .launch-detail-agency {
   display: flex;
@@ -86,18 +172,26 @@
   width: 100%;
 }
 .launch-detail-agency-logo {
-  max-width: 80vw;
+  width: 80vw;
+  max-width: 250px;
   height: auto;
   margin-top: 1rem;
 }
-.launch-detail--video {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #555;
-  padding: 1rem;
-  margin: 1rem auto;
-  width: 90%;
+.launch-detail-video {
+  position: relative;
+  overflow: hidden;
+  width: 60vw;
+}
+.launch-detail-video::after {
+  display: block;
+  content: "";
+  padding-top: 56.25%;
+}
+.launch-detail-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
 }
 .launch-detail-update {
@@ -153,13 +247,11 @@
   margin: 10px;
   text-align: center;
   text-decoration: none;
-  max-width: 250px;
-  max-height: 550px;
+  max-width: 60vw;
   background-color: #fff;
 }
 .card-container .card-image {
-  max-width: 100%;
-  margin: 0;
+  width: 60vw;
   height: auto;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -167,21 +259,31 @@
 }
 .card-container .card-text {
   color: #000;
+  font-size: 3.5vw;
 }
 .card-container .card-text .card-countdown {
-  font-size: larger;
+  font-size: 5vw;
   font-weight: bolder;
   width: 100%;
   height: auto;
   margin: 1rem auto;
 }
+.card-container .card-title {
+  font-size: 6vw;
+  text-decoration: none;
+  color: #000;
+}
+.card-container .card-title:visited {
+  color: #000;
+}
 .card-container .card-company {
-  font-size: small;
+  margin-top: 1rem;
 }
 .card-container .card-location {
   margin: 10px;
 }
 .card-container .card-location a {
+  font-size: 3.5vw;
   text-decoration: none;
   color: #000;
 }
@@ -190,7 +292,8 @@
 }
 
 body {
-  background-color: #326b9b;
+  background: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F003%2F375%2F985%2Foriginal%2Fspace-galaxy-background-free-vector.jpg&f=1&nofb=1&ipt=cdf14f5567f638ddbe77cc0343164c2f6cc9d9819c9652aa9d47ed2b4045f14d&ipo=images)
+    fixed;
 }
 
 .nav {

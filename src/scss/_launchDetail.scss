@@ -1,48 +1,62 @@
 .launch-detail {
     display: flex;
     flex-direction: column;
-    height: 100%;
-    width: 95%;
+    align-items: center;
+    width: 80vw;
     padding: 1rem;
     margin: 1rem auto;
+    background-color: $transparentbackground;
+    backdrop-filter: blur(4px);
+    border-radius: 30px;
 
     &-info {
-        width: 100%;
+        width: 60vw;
         height: auto;
         display: flex;
         flex-direction: column;
         align-items: center;
+
+        h1 {
+            font-size: 8vw;
+        }
         
         &-text {
-            width: 100vw;
+            width: 80vw;
             height: auto;
             display: flex;
             flex-direction: column;
-            color: #000;
-            font-size: larger;
+            color: #FFF;
             text-align: center;
             margin: 2rem;
             gap: 1rem;
 
             p.card-countdown{
-                font-size: xx-large;
+                font-size: 7vw;
                 font-weight: bolder;
                 color: #FFF;
             }
 
             &-wiki {
                 a{
+                    font-size: 5.5vw;
                     text-decoration: none;
-                    color: #000;
+                    color: #FFF;
                 }
+            }
+
+            &-location {
+                font-size: 5.5vw;
+                max-width: 60vw;
+                margin: auto;
             }
         }
 
         &-image {
+            width: 60vw;
+            max-width: 350px;
             height: auto;
             padding: 0.2rem;
             background-color: black;
-            margin: auto;
         }
 
         &-location {
@@ -53,7 +67,7 @@
             }
 
             &-image {
-                max-width: 90vw;
+                max-width: 60vw;
                 height: auto;
                 padding: 0.2rem;
                 background-color: black;
@@ -69,14 +83,16 @@
 
         h2 {
             text-align: center;
-            font-size: xx-large;
+            font-size: 8vw;
+            color: #FFF;
         }
 
         p {
             padding-top: 1rem;
             text-align: center;
-            font-size: larger;
+            font-size: 6vw;
             line-height: 1.5;
+            color: #FFF;
         }
     }
 
@@ -86,21 +102,31 @@
         width: 100%;
 
         &-logo {
-            max-width: 80vw;
+            width: 80vw;
+            max-width: 250px;
             height: auto;
             margin-top: 1rem;
         }
     }
 
-    &--video {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: #555;
-        padding: 1rem;
-        margin: 1rem auto;
-        width: 90%;
-        height: 100%;
+    &-video {
+        position: relative;
+        overflow: hidden;
+        width: 60vw;
+
+        &::after {
+            display: block;
+            content: "";
+            padding-top: 56.25%;
+        }
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
     }
 
     &-update {
