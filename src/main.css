@@ -41,7 +41,7 @@
 .launch-detail-info-text p.card-countdown {
   font-size: xx-large;
   font-weight: bolder;
-  color: #FFF;
+  color: #fff;
 }
 .launch-detail-info-text-wiki a {
   text-decoration: none;
@@ -155,7 +155,7 @@
   text-decoration: none;
   max-width: 250px;
   max-height: 550px;
-  background-color: #FFF;
+  background-color: #fff;
 }
 .card-container .card-image {
   max-width: 100%;
@@ -190,7 +190,7 @@
 }
 
 body {
-  background-color: #326B9B;
+  background-color: #326b9b;
 }
 
 .nav {
@@ -224,4 +224,4 @@ body {
   height: 100%;
   display: flex;
   align-items: center;
-}/*# sourceMappingURL=main.css.map */
+} /*# sourceMappingURL=main.css.map */

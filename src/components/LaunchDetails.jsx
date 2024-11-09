@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react";
 import getLaunchData from "../api/lldev_calls.js";
-import Countdown from "./LaunchCards/Countdown.jsx";
+import Countdown from "./utility/Countdown.jsx";
 import Loading from "./loading.jsx";
 
 function LaunchDetails() {
@@ -42,7 +42,7 @@ function LaunchDetails() {
           <h1>{launchDetail?.name.split("|")[0]}</h1>
           <Countdown net={launchDetail.net} />
           <p className="launch-detail-info-text-wiki">
-            <a href={launchDetail.pad.wiki_url} >Pad {launchDetail.pad.name}</a>
+            <a href={launchDetail.pad.wiki_url}>Pad {launchDetail.pad.name}</a>
           </p>
           <p>{launchDetail.pad.location.name}</p>
         </div>
@@ -87,7 +87,7 @@ function LaunchDetails() {
             </a>
           </div>
         ))}
-      </section>      
+      </section>
     </main>
   );
 }

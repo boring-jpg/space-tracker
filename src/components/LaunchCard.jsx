@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
-import Countdown from "./Countdown.jsx";
+import Countdown from "../utility/Countdown.jsx";
 import getLaunchData from "../../api/lldev_calls.js";
 import Loading from "../loading.jsx";
 
@@ -11,14 +11,12 @@ function LaunchCards() {
   // Launch cards on initial mount.
   useEffect(() => {
     const fetchLaunchData = async () => {
-      try{
-      const data = await getLaunchData("upcoming");
-      setLaunchData(data);
-      }
-      catch(err) {
+      try {
+        const data = await getLaunchData("upcoming");
+        setLaunchData(data);
+      } catch (err) {
         console.error(err);
-      }
-      finally {
+      } finally {
         setIsLoading(false);
       }
     };
@@ -36,9 +34,7 @@ function LaunchCards() {
             alt={launch.name}
             className="card-image"
           ></img>
-          <h2 className="card-text">
-            {launch.rocket.configuration.full_name}
-          </h2>
+          <h2 className="card-text">{launch.rocket.configuration.full_name}</h2>
           <p className="card-company card-text">{launch.launch_service_provider.name}</p>
           <div className="card-text">
             <Countdown net={launch.net} />
