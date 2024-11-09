@@ -1,5 +1,5 @@
 import {useState, useEffect} from "react";
-import getLaunchData from "../api/lldev_calls";
+import getLaunchData from "../api/lldev_calls.js";
 import Countdown from "./LaunchCards/Countdown.jsx";
 import Loading from "./loading.jsx";
 

@@ -21,7 +21,7 @@ function Navbar() {
       </ul>
     </nav>
   );
-}
+};
 
 Navbar.propTypes = {
   href: PropTypes.string,
