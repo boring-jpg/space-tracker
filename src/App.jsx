@@ -1,4 +1,4 @@
-import LaunchCards from "./components/LaunchCards/LaunchCard.jsx";
+import LaunchCards from "./components/LaunchCard.jsx";
 import Navbar from "./components/Navbar.jsx";
 import About from "./components/about.jsx";
 import LaunchDetails from "./components/LaunchDetails.jsx";
