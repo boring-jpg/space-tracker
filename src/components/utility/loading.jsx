@@ -1,5 +1,9 @@
 function Loading() {
-  return <main className="loading"></main>;
+  return (
+    <main className="loading-page">
+      <span className="loading"></span>
+    </main>
+  );
 }
 
 export default Loading;
