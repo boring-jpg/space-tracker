@@ -1,0 +1,55 @@
+.card-container {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+
+    .card {
+        border: 1px solid hsl(0, 2%, 46%);
+        border-radius: 20px;
+        box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
+        margin: 10px;
+        text-align: center;
+        text-decoration: none;
+        max-width: 250px;
+        max-height: 550px;
+        background-color: #FFF;
+
+        &-image {
+            max-width: 100%;
+            margin: 0;
+            height: auto;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            margin-bottom: 10px;
+        }
+
+        &-text {
+            color: #000;
+
+            .card-countdown{
+                font-size: larger;
+                font-weight: bolder;
+                width: 100%;
+                height: auto;
+                margin:  1rem auto;
+            }
+        }
+
+        &-company {
+            font-size: small;
+        }
+
+        &-location {
+            margin: 10px;
+
+            a{
+                text-decoration: none;
+                color: #000;
+            }
+        }
+
+        a {
+            text-decoration: none;
+        }
+    }
+}

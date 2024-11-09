@@ -1,0 +1,227 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.launch-detail {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 95%;
+  padding: 1rem;
+  margin: 1rem auto;
+}
+.launch-detail-info {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.launch-detail-info-text {
+  width: 100vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  color: #000;
+  font-size: larger;
+  text-align: center;
+  margin: 2rem;
+  gap: 1rem;
+}
+.launch-detail-info-text p.card-countdown {
+  font-size: xx-large;
+  font-weight: bolder;
+  color: #FFF;
+}
+.launch-detail-info-text-wiki a {
+  text-decoration: none;
+  color: #000;
+}
+.launch-detail-info-image {
+  height: auto;
+  padding: 0.2rem;
+  background-color: black;
+  margin: auto;
+}
+.launch-detail-info-location a {
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+.launch-detail-info-location-image {
+  max-width: 90vw;
+  height: auto;
+  padding: 0.2rem;
+  background-color: black;
+  border-radius: 5%;
+}
+.launch-detail-mission {
+  width: 100%;
+  margin: 2rem auto;
+  font-size: larger;
+}
+.launch-detail-mission h2 {
+  text-align: center;
+  font-size: xx-large;
+}
+.launch-detail-mission p {
+  padding-top: 1rem;
+  text-align: center;
+  font-size: larger;
+  line-height: 1.5;
+}
+.launch-detail-agency {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.launch-detail-agency-logo {
+  max-width: 80vw;
+  height: auto;
+  margin-top: 1rem;
+}
+.launch-detail--video {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #555;
+  padding: 1rem;
+  margin: 1rem auto;
+  width: 90%;
+  height: 100%;
+}
+.launch-detail-update {
+  margin: auto;
+  width: 100%;
+  height: 38vh;
+  border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  overflow: scroll;
+  justify-content: space-evenly;
+  gap: 1rem;
+  align-items: center;
+}
+.launch-detail-update-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  border: 5px solid black;
+  border-radius: 5%;
+  height: 20rem;
+  width: 30%;
+}
+.launch-detail-update-child-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.launch-detail-update-child-text p {
+  font-size: 1.5vw;
+  text-align: center;
+}
+.launch-detail-update-child-image {
+  width: 15vw;
+  padding: 0.2rem;
+  background-color: black;
+  border-radius: 60%;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card-container .card {
+  border: 1px solid hsl(0, 2%, 46%);
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
+  margin: 10px;
+  text-align: center;
+  text-decoration: none;
+  max-width: 250px;
+  max-height: 550px;
+  background-color: #FFF;
+}
+.card-container .card-image {
+  max-width: 100%;
+  margin: 0;
+  height: auto;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  margin-bottom: 10px;
+}
+.card-container .card-text {
+  color: #000;
+}
+.card-container .card-text .card-countdown {
+  font-size: larger;
+  font-weight: bolder;
+  width: 100%;
+  height: auto;
+  margin: 1rem auto;
+}
+.card-container .card-company {
+  font-size: small;
+}
+.card-container .card-location {
+  margin: 10px;
+}
+.card-container .card-location a {
+  text-decoration: none;
+  color: #000;
+}
+.card-container .card a {
+  text-decoration: none;
+}
+
+body {
+  background-color: #326B9B;
+}
+
+.nav {
+  background-color: #000033;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+.nav .site-name {
+  font-size: 2rem;
+}
+.nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+.nav li.active {
+  background-color: #555;
+}
+.nav li:hover {
+  background-color: #777;
+}
+.nav a {
+  color: inherit;
+  text-decoration: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}/*# sourceMappingURL=main.css.map */

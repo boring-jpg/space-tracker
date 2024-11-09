@@ -27,8 +27,8 @@ function LaunchDetails() {
   if (isLoading) return <Loading />;
 
   return (
-    <main className="launch-detail-container">
-      <section className="lauch-detail-info">
+    <main className="launch-detail">
+      <section className="launch-detail-info">
         {launchDetail?.image?.thumbnail_url ? (
           <img
             src={launchDetail.image.thumbnail_url}
@@ -41,8 +41,8 @@ function LaunchDetails() {
         <div className="launch-detail-info-text">
           <h1>{launchDetail?.name.split("|")[0]}</h1>
           <Countdown net={launchDetail.net} />
-          <p>
-            <a href={launchDetail.pad.wiki_url}>{launchDetail.pad.name}</a>
+          <p className="launch-detail-info-text-wiki">
+            <a href={launchDetail.pad.wiki_url} >Pad {launchDetail.pad.name}</a>
           </p>
           <p>{launchDetail.pad.location.name}</p>
         </div>
@@ -51,7 +51,7 @@ function LaunchDetails() {
             <img
               src={launchDetail.pad.map_image}
               alt={"map of" + launchDetail.pad.location.name}
-              className="launch-details-map-image"
+              className="launch-detail-info-location-image"
             ></img>
           </a>
         </div>
@@ -87,26 +87,7 @@ function LaunchDetails() {
             </a>
           </div>
         ))}
-      </section>
-
-      
-      <section className="launch-detail-update">
-        {launchDetail.updates.map((update) => (
-          <article className="launch-detail-update-child" key={update.id}>
-            <img
-              className="launch-detail-update-child-image"
-              src={update.profile_image}
-              alt={"Photo of" + update.created_by}
-            ></img>
-            <div className="launch-detail-update-child-text">
-              <p>{update.comment}</p>
-              <p>
-                {update.created_by} | {update.created_on}
-              </p>
-            </div>
-          </article>
-        ))}
-      </section>
+      </section>      
     </main>
   );
 }
