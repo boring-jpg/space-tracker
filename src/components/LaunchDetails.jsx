@@ -1,7 +1,8 @@
 import {useState, useEffect} from "react";
 import getLaunchData from "../api/lldev_calls.js";
 import Countdown from "./utility/Countdown.jsx";
-import Loading from "./loading.jsx";
+import Loading from "./utility/loading.jsx";
+import {changeTitle} from "./utility/changeTitle.js";
 
 function LaunchDetails() {
   const [launchDetail, setLaunchDetails] = useState(null);
@@ -10,17 +11,18 @@ function LaunchDetails() {
   useEffect(() => {
     const fetchLaunchData = async () => {
       try {
+        changeTitle("Space-Tracker" + " | " + "Loading...");
         const launchId = window.location.pathname.split("/")[2];
         const data = await getLaunchData(launchId);
         console.log(data);
         setLaunchDetails(data);
+        changeTitle("Space-Tracker" + " | " + data.name);
       } catch (error) {
         console.error(error);
       } finally {
         setIsLoading(false);
       }
     };
-
     fetchLaunchData();
   }, []);
 
@@ -41,12 +43,6 @@ function LaunchDetails() {
         <div className="launch-detail-info-text">
           <h1>{launchDetail?.name.split("|")[0]}</h1>
           <Countdown net={launchDetail.net} />
-          <p className="launch-detail-info-text-wiki">
-            <a href={launchDetail.pad.wiki_url}>Pad {launchDetail.pad.name}</a>
-          </p>
-          <p>{launchDetail.pad.location.name}</p>
-        </div>
-        <div className="launch-detail-info-location">
           <a href={launchDetail.pad.map_url} target="_blank">
             <img
               src={launchDetail.pad.map_image}
@@ -54,6 +50,12 @@ function LaunchDetails() {
               className="launch-detail-info-location-image"
             ></img>
           </a>
+          <p className="launch-detail-info-text-wiki">
+            <a href={launchDetail.pad.wiki_url}>Pad {launchDetail.pad.name}</a>
+          </p>
+          <p className="launch-detail-info-text-location">
+            {launchDetail.pad.location.name}
+          </p>
         </div>
       </section>
 

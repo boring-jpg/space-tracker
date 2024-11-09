@@ -1,8 +1,9 @@
 import {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
-import Countdown from "../utility/Countdown.jsx";
-import getLaunchData from "../../api/lldev_calls.js";
-import Loading from "../loading.jsx";
+import Countdown from "./utility/Countdown.jsx";
+import getLaunchData from "../api/lldev_calls.js";
+import Loading from "./utility/loading.jsx";
+import {changeTitle} from "./utility/changeTitle.js";
 
 function LaunchCards() {
   const [launchData, setLaunchData] = useState([]);
@@ -12,8 +13,10 @@ function LaunchCards() {
   useEffect(() => {
     const fetchLaunchData = async () => {
       try {
+        changeTitle("Space-Tracker" + " | " + "Loading...");
         const data = await getLaunchData("upcoming");
         setLaunchData(data);
+        changeTitle("Space-Tracker");
       } catch (err) {
         console.error(err);
       } finally {
@@ -34,7 +37,7 @@ function LaunchCards() {
             alt={launch.name}
             className="card-image"
           ></img>
-          <h2 className="card-text">{launch.rocket.configuration.full_name}</h2>
+          <h2 className="card-title">{launch.rocket.configuration.full_name}</h2>
           <p className="card-company card-text">{launch.launch_service_provider.name}</p>
           <div className="card-text">
             <Countdown net={launch.net} />
