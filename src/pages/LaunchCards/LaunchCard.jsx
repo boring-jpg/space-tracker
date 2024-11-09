@@ -2,18 +2,30 @@ import {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
 import Countdown from "./Countdown.jsx";
 import getLaunchData from "../../api/lldev_calls.js";
+import Loading from "../loading.jsx";
 
 function LaunchCards() {
   const [launchData, setLaunchData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   // Launch cards on initial mount.
   useEffect(() => {
     const fetchLaunchData = async () => {
+      try{
       const data = await getLaunchData("upcoming");
       setLaunchData(data);
+      }
+      catch(err) {
+        console.error(err);
+      }
+      finally {
+        setIsLoading(false);
+      }
     };
     fetchLaunchData();
   }, []);
+
+  if (isLoading) return <Loading />;
 
   return (
     <div className="card-container">

@@ -1,6 +1,7 @@
 import {useState, useEffect} from "react";
-import getLaunchData from "../api/lldev_calls";
+import getLaunchData from "../api/lldev_calls.js";
 import Countdown from "./LaunchCards/Countdown.jsx";
+import Loading from "./loading.jsx";
 
 function LaunchDetails() {
   const [launchDetail, setLaunchDetails] = useState(null);
@@ -23,7 +24,7 @@ function LaunchDetails() {
     fetchLaunchData();
   }, []);
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <Loading />;
 
   return (
     <main className="launch-detail-container">
@@ -32,7 +33,7 @@ function LaunchDetails() {
           <img
             src={launchDetail.image.thumbnail_url}
             alt={launchDetail.image.name || "Launch Image"}
-            className="launch-detail-image"
+            className="launch-detail-info-image"
           />
         ) : (
           <p>No image available</p>
@@ -88,24 +89,23 @@ function LaunchDetails() {
         ))}
       </section>
 
-      <section className="launch-detail-updates">
-        <div className="launch-detail-update-container">
-          {launchDetail.updates.map((update) => (
-            <article className="launch-detail-update" key={update.id}>
-              <img
-                className="launch-detail-update-image"
-                src={update.profile_image}
-                alt={"Photo of" + update.created_by}
-              ></img>
-              <div className="launch-detail-update-text">
-                <p>{update.comment}</p>
-                <p>
-                  {update.created_by} | {update.created_on}
-                </p>
-              </div>
-            </article>
-          ))}
-        </div>
+      
+      <section className="launch-detail-update">
+        {launchDetail.updates.map((update) => (
+          <article className="launch-detail-update-child" key={update.id}>
+            <img
+              className="launch-detail-update-child-image"
+              src={update.profile_image}
+              alt={"Photo of" + update.created_by}
+            ></img>
+            <div className="launch-detail-update-child-text">
+              <p>{update.comment}</p>
+              <p>
+                {update.created_by} | {update.created_on}
+              </p>
+            </div>
+          </article>
+        ))}
       </section>
     </main>
   );
