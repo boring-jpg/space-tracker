@@ -133,7 +133,7 @@
          align-items: center;
          text-align: center;
     }
-     .launch-detail-image {
+     .launch-detail-info-image {
          width: 20vw;
          height: auto;
          padding: 0.5rem;
@@ -193,7 +193,7 @@
          text-decoration: none;
          color: black;
     }
-     .launch-detail-update {
+     .launch-detail-update-child {
          display: flex;
          flex-direction: column;
          align-items: center;
@@ -204,23 +204,23 @@
          height: 20rem;
          width: 30%;
     }
-     .launch-detail-update-text {
+     .launch-detail-update-child-text {
          display: flex;
          flex-direction: column;
          justify-content: space-between;
          gap: 2rem;
     }
-     .launch-detail-update-text p {
+     .launch-detail-update-child-text p {
          font-size: 1.5vw;
          text-align: center;
     }
-     .launch-detail-update-image {
+     .launch-detail-update-child-image {
          width: 10vw;
          padding: 0.2rem;
          background-color: black;
          border-radius: 60%;
     }
-     .launch-detail-update-container {
+     .launch-detail-update {
          margin: 1rem auto;
          width:100%;
          border-radius: 20px;
@@ -306,7 +306,7 @@
          align-items: center;
          text-align: center;
     }
-     .launch-detail-image {
+     .launch-detail-info-image {
          width: 20vw;
          height: auto;
          padding: 0.5rem;
@@ -366,7 +366,7 @@
          text-decoration: none;
          color: black;
     }
-     .launch-detail-update {
+     .launch-detail-update-child {
          display: flex;
          flex-direction: column;
          align-items: center;
@@ -377,23 +377,23 @@
          height: 20rem;
          width: 30%;
     }
-     .launch-detail-update-text {
+     .launch-detail-update-child-text {
          display: flex;
          flex-direction: column;
          justify-content: space-between;
          gap: 2rem;
     }
-     .launch-detail-update-text p {
+     .launch-detail-update-child-text p {
          font-size: 1.5vw;
          text-align: center;
     }
-     .launch-detail-update-image {
+     .launch-detail-update-child-image {
          width: 10vw;
          padding: 0.2rem;
          background-color: black;
          border-radius: 60%;
     }
-     .launch-detail-update-container {
+     .launch-detail-update {
          margin: auto;
          width:100%;
          height: 35vh;
@@ -480,7 +480,7 @@
          align-items: center;
          text-align: center;
     }
-     .launch-detail-image {
+     .launch-detail-info-image {
          width: 35vw;
          height: auto;
          max-height: 176px;
@@ -543,7 +543,7 @@
          text-decoration: none;
          color: black;
     }
-     .launch-detail-update {
+     .launch-detail-update-child {
          display: flex;
          flex-direction: column;
          align-items: center;
@@ -554,23 +554,23 @@
          height: 20rem;
          width: 30%;
     }
-     .launch-detail-update-text {
+     .launch-detail-update-child-text {
          display: flex;
          flex-direction: column;
          justify-content: space-between;
          gap: 2rem;
     }
-     .launch-detail-update-text p {
+     .launch-detail-update-child-text p {
          font-size: 1.5vw;
          text-align: center;
     }
-     .launch-detail-update-image {
+     .launch-detail-update-child-image {
          width: 15vw;
          padding: 0.2rem;
          background-color: black;
          border-radius: 60%;
     }
-     .launch-detail-update-container {
+     .launch-detail-update {
          margin: auto;
          width:100%;
          height: 38vh;

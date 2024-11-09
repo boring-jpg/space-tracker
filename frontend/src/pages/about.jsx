@@ -1,5 +1,5 @@
 function About() {
-  return <h1> PLACEHOLDER</h1>;
+  return <h1> PHOLDER</h1>;
 }
 
 export default About;

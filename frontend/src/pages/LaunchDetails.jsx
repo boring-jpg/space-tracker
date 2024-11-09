@@ -33,7 +33,7 @@ function LaunchDetails() {
           <img
             src={launchDetail.image.thumbnail_url}
             alt={launchDetail.image.name || "Launch Image"}
-            className="launch-detail-image"
+            className="launch-detail-info-image"
           />
         ) : (
           <p>No image available</p>
@@ -90,15 +90,15 @@ function LaunchDetails() {
       </section>
 
       
-      <section className="launch-detail-update-container">
+      <section className="launch-detail-update">
         {launchDetail.updates.map((update) => (
-          <article className="launch-detail-update" key={update.id}>
+          <article className="launch-detail-update-child" key={update.id}>
             <img
-              className="launch-detail-update-image"
+              className="launch-detail-update-child-image"
               src={update.profile_image}
               alt={"Photo of" + update.created_by}
             ></img>
-            <div className="launch-detail-update-text">
+            <div className="launch-detail-update-child-text">
               <p>{update.comment}</p>
               <p>
                 {update.created_by} | {update.created_on}
