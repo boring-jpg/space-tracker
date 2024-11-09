@@ -85,7 +85,6 @@ function LaunchDetails() {
                 className="launch-detail-agency-logo"
               ></img>
             </a>
-            <p>{launch.launch_service_provider.name}</p>
           </div>
         ))}
       </section>      
