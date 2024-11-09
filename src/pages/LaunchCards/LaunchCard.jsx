@@ -28,7 +28,7 @@ function LaunchCards() {
   if (isLoading) return <Loading />;
 
   return (
-    <div className="card-container">
+    <main className="card-container">
       {launchData.map((launch) => (
         <Link to={`/launch/${launch.id}/`} key={launch.id} className="card">
           <img
@@ -36,11 +36,11 @@ function LaunchCards() {
             alt={launch.name}
             className="card-image"
           ></img>
-          <h2 className="card-title card-text">
+          <h2 className="card-text">
             {launch.rocket.configuration.full_name}
           </h2>
           <p className="card-company card-text">{launch.launch_service_provider.name}</p>
-          <div className="card-info-container card-text">
+          <div className="card-text">
             <Countdown net={launch.net} />
           </div>
           <p className="card-location">
@@ -48,7 +48,7 @@ function LaunchCards() {
           </p>
         </Link>
       ))}
-    </div>
+    </main>
   );
 }
 
