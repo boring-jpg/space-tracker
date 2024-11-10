@@ -29,24 +29,26 @@ function LaunchCards() {
   if (isLoading) return <Loading />;
 
   return (
-    <main className="card-container">
-      {launchData.map((launch) => (
-        <Link to={`/launch/${launch.id}/`} key={launch.id} className="card">
-          <img
-            src={launch.image.thumbnail_url}
-            alt={launch.name}
-            className="card-image"
-          ></img>
-          <h2 className="card-title">{launch.rocket.configuration.full_name}</h2>
-          <p className="card-company card-text">{launch.launch_service_provider.name}</p>
-          <div className="card-text">
-            <Countdown net={launch.net} />
-          </div>
-          <p className="card-location">
-            <Link to={launch.pad.wiki_url}>{launch.pad.location.name}</Link>
-          </p>
-        </Link>
-      ))}
+    <main className="launches">
+      <section className="card-container">
+        {launchData.map((launch) => (
+          <Link to={`/launch/${launch.id}/`} key={launch.id} className="card">
+            <img
+              src={launch.image.thumbnail_url}
+              alt={launch.name}
+              className="card-image"
+            ></img>
+            <h2 className="card-title">{launch.rocket.configuration.full_name}</h2>
+            <p className="card-company card-text">{launch.launch_service_provider.name}</p>
+            <div className="card-text">
+              <Countdown net={launch.net} />
+            </div>
+            <p className="card-location">
+              <Link to={launch.pad.wiki_url}>{launch.pad.location.name}</Link>
+            </p>
+          </Link>
+        ))}
+      </section>
     </main>
   );
 }

@@ -1,67 +1,130 @@
-.card-container {
-    display: flex;
-    flex-direction: column;
-    align-items:center;
+@import 'config';
+.launches{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+
+    .card-container {
+        display: grid;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+        padding-top: 15vh;
     
-
-    .card {
-        border: 1px solid hsl(0, 2%, 46%);
-        border-radius: 20px;
-        box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
-        margin: 10px;
-        text-align: center;
-        text-decoration: none;
-        max-width: 60vw;
-        background-color: #FFF;
-
-        &-image {
-            width: 60vw;
-            height: auto;
-            border-top-left-radius: 20px;
-            border-top-right-radius: 20px;
-            margin-bottom: 10px;
+        @include for_breakpoint(tablet){
+            display: grid;
+            padding: 10vw 0 0 5vw;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
         }
 
-        &-text {
-            color: #000;
-            font-size: 3.5vw;
-            
-
-            .card-countdown{
-                font-size: 5vw;
-                font-weight: bolder;
-                width: 100%;
-                height: auto;
-                margin:  1rem auto;
-            }
-        
+        @include for_breakpoint(desktop){
+            grid-template-columns: 1fr 1fr 1fr;
         }
-        &-title{
-            font-size: 6vw;
-            text-decoration: none;
-            color: #000;
-
-            &:visited {
-                color: #000;
-            }
-        }
-
-        &-company {
-            margin-top: 1rem;
-        }
-
-        &-location {
+    
+        .card {
+            border: 1px solid hsl(0, 2%, 46%);
+            border-radius: 20px;
+            box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
             margin: 10px;
-
-            a{
+            text-align: center;
+            text-decoration: none;
+            width: 60vw;
+            background-color: #FFF;
+    
+            @include for_breakpoint(tablet){
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                max-height: 550px;
+                max-width: 350px;
+                align-items: center;
+                gap: 1rem;
+            }
+    
+            &-image {
+                width: 60vw;
+                height: auto;
+                border-top-left-radius: 20px;
+                border-top-right-radius: 20px;
+                margin-bottom: 10px;
+    
+                @include for_breakpoint(tablet){
+                    max-width: 50%;
+                    margin: 1rem auto;
+                    padding: 0.5rem;
+                    background-color: black;
+                    border-radius: 50%;
+                }
+            }
+    
+            &-text {
+                color: #000;
                 font-size: 3.5vw;
+    
+                @include for_breakpoint(tablet){
+                    font-size: x-large;
+                }
+                
+                .card-countdown{
+                    font-size: 5vw;
+                    font-weight: bolder;
+                    width: 100%;
+                    height: auto;
+                    margin:  1rem auto;
+    
+                    @include for_breakpoint(tablet){
+                        font-size: xx-large;
+                    }
+                }
+            
+            }
+            &-title{
+                font-size: 6vw;
                 text-decoration: none;
                 color: #000;
+    
+                @include for_breakpoint(tablet){
+                    font-size: xx-large;
+                }
+    
+                &:visited {
+                    color: #000;
+                }
             }
-        }
-
-        a {
-            text-decoration: none;
+    
+            &-company {
+                margin-top: 1rem;
+    
+                @include for_breakpoint(tablet){
+                    margin-top: 0;
+                    text-align: center;
+                }
+            }
+    
+            &-location {
+                margin: 10px;
+    
+                @include for_breakpoint(tablet){
+                    margin: 0;
+                }
+    
+                a{
+                    font-size: 3.5vw;
+                    text-decoration: none;
+                    color: #000;
+    
+                    @include for_breakpoint(tablet){
+                        font-size: x-large;
+                    }
+                }
+            }
+    
+            a {
+                text-decoration: none;
+            }
         }
     }
 }
