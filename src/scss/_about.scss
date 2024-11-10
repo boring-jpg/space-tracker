@@ -1,0 +1,57 @@
+
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    width: 100vw;    
+    
+    
+    &-info {
+        height: 50vh;
+        width: 90vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: hwb(30 36% 62% / 0.2);
+        backdrop-filter: blur(7px);
+
+        &-title{
+            display: none;
+            font-size: 10vw;
+        }
+        &-name {
+            font-size: 10vw;
+        }
+        &-p{
+            font-size: 4vw;
+        }
+
+        .social-links {
+            margin-top: 3rem;
+            height: auto;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 1rem;
+    
+            .fa-github {
+                font-size: 10vw;
+            }
+            .fa-linkedin {
+                font-size: 10vw;
+            }
+            a {
+                text-decoration: none;
+                color: black;
+                // background-color: #FFF;
+            }
+        }
+    }
+
+    
+   
+}
+
