@@ -6,10 +6,11 @@
     height: 90vh;
     width: 100vw;    
     
-    
     &-info {
         height: 50vh;
+        max-height: 350px;
         width: 90vw;
+        max-width: 895px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -17,15 +18,17 @@
         background-color: hwb(30 36% 62% / 0.2);
         backdrop-filter: blur(7px);
 
-        &-title{
-            display: none;
-            font-size: 10vw;
-        }
         &-name {
             font-size: 10vw;
+            @include for_breakpoint(desktop){
+                font-size: 6rem;
+            }
         }
         &-p{
             font-size: 4vw;
+            @include for_breakpoint(desktop){
+                font-size: 3rem;
+            }
         }
 
         .social-links {
@@ -36,12 +39,23 @@
             justify-content: center;
             list-style: none;
             gap: 1rem;
+
+            @include for_breakpoint(desktop){
+                margin-top: 5rem;
+                gap: 2rem;
+            }
     
             .fa-github {
                 font-size: 10vw;
+                @include for_breakpoint(desktop){
+                    font-size: 6rem;
+                }
             }
             .fa-linkedin {
                 font-size: 10vw;
+                @include for_breakpoint(desktop){
+                    font-size: 6rem;
+                }
             }
             a {
                 text-decoration: none;

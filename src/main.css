@@ -328,7 +328,9 @@
 }
 .about-info {
   height: 50vh;
+  max-height: 350px;
   width: 90vw;
+  max-width: 895px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -336,15 +338,21 @@
   background-color: hwb(30 36% 62%/0.2);
   backdrop-filter: blur(7px);
 }
-.about-info-title {
-  display: none;
-  font-size: 10vw;
-}
 .about-info-name {
   font-size: 10vw;
 }
+@media only screen and (min-width: 992px) {
+  .about-info-name {
+    font-size: 6rem;
+  }
+}
 .about-info-p {
   font-size: 4vw;
+}
+@media only screen and (min-width: 992px) {
+  .about-info-p {
+    font-size: 3rem;
+  }
 }
 .about-info .social-links {
   margin-top: 3rem;
@@ -355,11 +363,27 @@
   list-style: none;
   gap: 1rem;
 }
+@media only screen and (min-width: 992px) {
+  .about-info .social-links {
+    margin-top: 5rem;
+    gap: 2rem;
+  }
+}
 .about-info .social-links .fa-github {
   font-size: 10vw;
 }
+@media only screen and (min-width: 992px) {
+  .about-info .social-links .fa-github {
+    font-size: 6rem;
+  }
+}
 .about-info .social-links .fa-linkedin {
   font-size: 10vw;
+}
+@media only screen and (min-width: 992px) {
+  .about-info .social-links .fa-linkedin {
+    font-size: 6rem;
+  }
 }
 .about-info .social-links a {
   text-decoration: none;
