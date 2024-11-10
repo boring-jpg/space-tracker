@@ -17,6 +17,7 @@
         align-items: center;
         background-color: hwb(30 36% 62% / 0.2);
         backdrop-filter: blur(7px);
+        z-index: -1;
 
         &-name {
             font-size: 10vw;
