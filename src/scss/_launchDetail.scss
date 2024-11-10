@@ -1,28 +1,24 @@
 .launch-detail {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 80vw;
-    padding: 1rem;
-    margin: 1rem auto;
-    background-color: $transparentbackground;
-    backdrop-filter: blur(4px);
-    border-radius: 30px;
-
+    justify-content: center;
+    padding-top: 15vh;
+    
     &-info {
-        width: 60vw;
-        height: auto;
         display: flex;
         flex-direction: column;
         align-items: center;
+        background-color: #{$transparentbackground};
+        backdrop-filter: blur(30px);
+        border-radius: 30px;
+        width: 80vw;
+        padding: 2vh;
+        z-index: -1;
 
         h1 {
             font-size: 8vw;
         }
         
         &-text {
-            width: 80vw;
-            height: auto;
             display: flex;
             flex-direction: column;
             color: #FFF;
@@ -54,7 +50,6 @@
         &-image {
             width: 60vw;
             max-width: 350px;
-            height: auto;
             padding: 0.2rem;
             background-color: black;
         }
@@ -68,7 +63,6 @@
 
             &-image {
                 max-width: 60vw;
-                height: auto;
                 padding: 0.2rem;
                 background-color: black;
                 border-radius: 5%;
@@ -77,10 +71,7 @@
     }
 
     &-mission {
-        width: 100%;
         margin: 2rem auto;
-        font-size: larger;
-
         h2 {
             text-align: center;
             font-size: 8vw;
@@ -90,8 +81,8 @@
         p {
             padding-top: 1rem;
             text-align: center;
-            font-size: 6vw;
-            line-height: 1.5;
+            font-size: 4vw;
+            line-height: 2;
             color: #FFF;
         }
     }
@@ -99,12 +90,10 @@
     &-agency {
         display: flex;
         justify-content: center;
-        width: 100%;
 
         &-logo {
             width: 80vw;
             max-width: 250px;
-            height: auto;
             margin-top: 1rem;
         }
     }
@@ -129,50 +118,6 @@
         }
     }
 
-    &-update {
-        margin: auto;
-        width:100%;
-        height: 38vh;
-        border-radius: 20px;
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        overflow: scroll;
-        justify-content: space-evenly;
-        gap: 1rem;
-        align-items: center;
-
-        &-child {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.5rem;
-            border: 5px solid black;
-            border-radius: 5%;
-            height: 20rem;
-            width: 30%;
-    
-            &-text {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                gap: 2rem;
-    
-                p {
-                    font-size: 1.5vw;
-                    text-align: center;
-                }
-            }
-    
-            &-image {
-                width: 15vw;
-                padding: 0.2rem;
-                background-color: black;
-                border-radius: 60%;
-            }
-        }
-    }
 }
 
 
