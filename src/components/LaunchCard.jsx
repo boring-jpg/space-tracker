@@ -42,6 +42,7 @@ function LaunchCards() {
       totalPosts={launchData.length}
       postPerPage={postPerPage}
       setCurrentPage={setCurrentPage}
+      currentPage={currentPage}
       />
         <section className="card-container">
           {currentPosts.map((launch) => (
@@ -66,6 +67,8 @@ function LaunchCards() {
       totalPosts={launchData.length}
       postPerPage={postPerPage}
       setCurrentPage={setCurrentPage}
+      currentPage={currentPage}
+
       />
       </main>
       

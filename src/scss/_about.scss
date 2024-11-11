@@ -7,7 +7,6 @@
     width: 100vw;  
     z-index: -1;
   
-    
     &-info {
         height: 50vh;
         max-height: 350px;
@@ -17,17 +16,21 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: hwb(30 36% 62% / 0.2);
-        backdrop-filter: blur(7px);
+        border-radius: 20px;
+        background-color: #{$primaryColor}5F;
+        backdrop-filter: blur(10px);
 
         &-name {
             font-size: 10vw;
+            color: #FFF;
             @include for_breakpoint(desktop){
                 font-size: 6rem;
             }
         }
         &-p{
             font-size: 4vw;
+            color: #FFF;
+
             @include for_breakpoint(desktop){
                 font-size: 3rem;
             }
@@ -61,7 +64,7 @@
             }
             a {
                 text-decoration: none;
-                color: black;
+                color: #FFF;
                 // background-color: #FFF;
             }
         }
