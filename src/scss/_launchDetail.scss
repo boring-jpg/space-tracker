@@ -2,20 +2,29 @@
     display: flex;
     justify-content: center;
     padding-top: 15vh;
+
+    @include for_breakpoint(tablet){
+        padding-top: 5vh;
+    }
     
     &-info {
         display: flex;
         flex-direction: column;
-        align-items: center;
         background-color: #{$transparentbackground};
         backdrop-filter: blur(30px);
         border-radius: 30px;
-        width: 80vw;
+        width: 90vw;
         padding: 2vh;
-        z-index: -1;
+
+        @include for_breakpoint(tablet){
+            max-width: 820px;
+        }
 
         h1 {
             font-size: 8vw;
+            @include for_breakpoint(tablet){
+                font-size: 3rem;
+            }
         }
         
         &-text {
@@ -23,20 +32,63 @@
             flex-direction: column;
             color: #FFF;
             text-align: center;
+            align-items: center;
             margin: 2rem;
             gap: 1rem;
+
+            @include for_breakpoint(tablet){
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto;
+                grid-template-areas:
+                    "image title"
+                    "map location"
+                    "countdown countdown";
+                font-size: 2rem;
+            }
 
             p.card-countdown{
                 font-size: 7vw;
                 font-weight: bolder;
                 color: #FFF;
-            }
 
+                @include for_breakpoint(tablet){
+                    font-size: 3rem;
+                    grid-area: countdown;
+                    grid-auto-flow: row;
+                    width: 100%;
+                }
+            }
+            a{
+                grid-area: map;
+            }
+            span{
+                grid-area: location;
+            }
+            
+            &-image {
+                width: 60vw;
+                max-width: 350px;
+                padding: 0.2rem;
+                background-color: black;
+    
+                @include for_breakpoint(tablet){
+                    grid-area: image;
+                    max-width: 15rem;
+                    margin: 1rem auto;
+                    padding: 0.5rem;
+                    background-color: black;
+                    border-radius: 50%;
+                }
+            }
             &-wiki {
                 a{
                     font-size: 5.5vw;
                     text-decoration: none;
                     color: #FFF;
+                    @include for_breakpoint(tablet){
+                        font-size: 2rem;
+                    }
                 }
             }
 
@@ -44,16 +96,12 @@
                 font-size: 5.5vw;
                 max-width: 60vw;
                 margin: auto;
+                @include for_breakpoint(tablet){
+                    font-size: 2rem;
+                }
             }
         }
-
-        &-image {
-            width: 60vw;
-            max-width: 350px;
-            padding: 0.2rem;
-            background-color: black;
-        }
-
+        
         &-location {
             a {
                 text-align: center;
@@ -62,10 +110,14 @@
             }
 
             &-image {
-                max-width: 60vw;
+                width: 60vw;
                 padding: 0.2rem;
                 background-color: black;
                 border-radius: 5%;
+
+                @include for_breakpoint(tablet){
+                    width: 20rem;
+                }
             }
         }
     }
@@ -76,6 +128,9 @@
             text-align: center;
             font-size: 8vw;
             color: #FFF;
+            @include for_breakpoint(tablet){
+                font-size: 4rem;
+            }
         }
 
         p {
@@ -84,6 +139,9 @@
             font-size: 4vw;
             line-height: 2;
             color: #FFF;
+            @include for_breakpoint(tablet){
+                font-size: 2rem;
+            }
         }
     }
 
@@ -95,6 +153,11 @@
             width: 80vw;
             max-width: 250px;
             margin-top: 1rem;
+            background-color: #0000003f;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: blur(10px);
+            
         }
     }
 
@@ -102,6 +165,9 @@
         position: relative;
         overflow: hidden;
         width: 60vw;
+        margin: auto;
+
+        max-width: 672px;
 
         &::after {
             display: block;

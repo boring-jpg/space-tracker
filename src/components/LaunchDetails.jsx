@@ -31,16 +31,16 @@ function LaunchDetails() {
   return (
     <main className="launch-detail">
       <section className="launch-detail-info">
-        {launchDetail?.image?.thumbnail_url ? (
-          <img
-            src={launchDetail.image.thumbnail_url}
-            alt={launchDetail.image.name || "Launch Image"}
-            className="launch-detail-info-image"
-          />
-        ) : (
-          <p>No image available</p>
-        )}
         <div className="launch-detail-info-text">
+          {launchDetail?.image?.thumbnail_url ? (
+            <img
+              src={launchDetail.image.thumbnail_url}
+              alt={launchDetail.image.name || "Launch Image"}
+              className="launch-detail-info-text-image"
+            />
+          ) : (
+            <p>No image available</p>
+          )}
           <h1>{launchDetail?.name.split("|")[0]}</h1>
           <Countdown net={launchDetail.net} />
           <a href={launchDetail.pad.map_url} target="_blank">
@@ -50,13 +50,16 @@ function LaunchDetails() {
               className="launch-detail-info-location-image"
             ></img>
           </a>
-          <p className="launch-detail-info-text-wiki">
-            <a href={launchDetail.pad.wiki_url}>Pad {launchDetail.pad.name}</a>
-          </p>
-          <p className="launch-detail-info-text-location">
-            {launchDetail.pad.location.name}
-          </p>
+          <span>
+            <p className="launch-detail-info-text-wiki">
+              <a href={launchDetail.pad.wiki_url}>Pad {launchDetail.pad.name}</a>
+            </p>
+            <p className="launch-detail-info-text-location">
+              {launchDetail.pad.location.name}
+            </p>
+          </span>
         </div>
+
         {launchDetail.vid_urls
         .filter((url) => url.url.includes("youtube.com"))
         .slice(0, 1)

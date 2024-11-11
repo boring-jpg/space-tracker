@@ -14,6 +14,11 @@ body {
     width: 100vw;
     max-height: 80px;
     gap: 2rem;
+    z-index: 5;
+
+    @include for_breakpoint(tablet){
+        position: relative;
+    }
     
     .site-name {
         display: block;

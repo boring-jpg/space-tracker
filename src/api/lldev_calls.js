@@ -1,5 +1,5 @@
 const getLaunchData = async (input) => {
-  const lldevAPI = `https://lldev.thespacedevs.com/2.3.0/launches/${input}/`;
+  const lldevAPI = `https://lldev.thespacedevs.com/2.3.0/launches/${input}/?limit=41`;
   try {
     const call = await fetch(lldevAPI);
     if (!call.ok) {

@@ -88,48 +88,105 @@
   justify-content: center;
   padding-top: 15vh;
 }
+@media only screen and (min-width: 768px) {
+  .launch-detail {
+    padding-top: 5vh;
+  }
+}
 .launch-detail-info {
   display: flex;
   flex-direction: column;
-  align-items: center;
   background-color: hsla(0, 3%, 23%, 0.3);
   backdrop-filter: blur(30px);
   border-radius: 30px;
-  width: 80vw;
+  width: 90vw;
   padding: 2vh;
-  z-index: -1;
+}
+@media only screen and (min-width: 768px) {
+  .launch-detail-info {
+    max-width: 820px;
+  }
 }
 .launch-detail-info h1 {
   font-size: 8vw;
+}
+@media only screen and (min-width: 768px) {
+  .launch-detail-info h1 {
+    font-size: 3rem;
+  }
 }
 .launch-detail-info-text {
   display: flex;
   flex-direction: column;
   color: #FFF;
   text-align: center;
+  align-items: center;
   margin: 2rem;
   gap: 1rem;
+}
+@media only screen and (min-width: 768px) {
+  .launch-detail-info-text {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "image title" "map location" "countdown countdown";
+    font-size: 2rem;
+  }
 }
 .launch-detail-info-text p.card-countdown {
   font-size: 7vw;
   font-weight: bolder;
   color: #FFF;
 }
+@media only screen and (min-width: 768px) {
+  .launch-detail-info-text p.card-countdown {
+    font-size: 3rem;
+    grid-area: countdown;
+    grid-auto-flow: row;
+    width: 100%;
+  }
+}
+.launch-detail-info-text a {
+  grid-area: map;
+}
+.launch-detail-info-text span {
+  grid-area: location;
+}
+.launch-detail-info-text-image {
+  width: 60vw;
+  max-width: 350px;
+  padding: 0.2rem;
+  background-color: black;
+}
+@media only screen and (min-width: 768px) {
+  .launch-detail-info-text-image {
+    grid-area: image;
+    max-width: 15rem;
+    margin: 1rem auto;
+    padding: 0.5rem;
+    background-color: black;
+    border-radius: 50%;
+  }
+}
 .launch-detail-info-text-wiki a {
   font-size: 5.5vw;
   text-decoration: none;
   color: #FFF;
+}
+@media only screen and (min-width: 768px) {
+  .launch-detail-info-text-wiki a {
+    font-size: 2rem;
+  }
 }
 .launch-detail-info-text-location {
   font-size: 5.5vw;
   max-width: 60vw;
   margin: auto;
 }
-.launch-detail-info-image {
-  width: 60vw;
-  max-width: 350px;
-  padding: 0.2rem;
-  background-color: black;
+@media only screen and (min-width: 768px) {
+  .launch-detail-info-text-location {
+    font-size: 2rem;
+  }
 }
 .launch-detail-info-location a {
   text-align: center;
@@ -137,10 +194,15 @@
   color: black;
 }
 .launch-detail-info-location-image {
-  max-width: 60vw;
+  width: 60vw;
   padding: 0.2rem;
   background-color: black;
   border-radius: 5%;
+}
+@media only screen and (min-width: 768px) {
+  .launch-detail-info-location-image {
+    width: 20rem;
+  }
 }
 .launch-detail-mission {
   margin: 2rem auto;
@@ -150,12 +212,22 @@
   font-size: 8vw;
   color: #FFF;
 }
+@media only screen and (min-width: 768px) {
+  .launch-detail-mission h2 {
+    font-size: 4rem;
+  }
+}
 .launch-detail-mission p {
   padding-top: 1rem;
   text-align: center;
   font-size: 4vw;
   line-height: 2;
   color: #FFF;
+}
+@media only screen and (min-width: 768px) {
+  .launch-detail-mission p {
+    font-size: 2rem;
+  }
 }
 .launch-detail-agency {
   display: flex;
@@ -165,11 +237,17 @@
   width: 80vw;
   max-width: 250px;
   margin-top: 1rem;
+  background-color: rgba(0, 0, 0, 0.2470588235);
+  border-radius: 5px;
+  padding: 10px;
+  background-color: blur(10px);
 }
 .launch-detail-video {
   position: relative;
   overflow: hidden;
   width: 60vw;
+  margin: auto;
+  max-width: 672px;
 }
 .launch-detail-video::after {
   display: block;
@@ -192,13 +270,12 @@
 }
 
 .launches {
-  height: 100vh;
-  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .launches .card-container {
-  display: grid;
-  grid-column-start: 1;
-  grid-column-end: 3;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -207,12 +284,11 @@
 @media only screen and (min-width: 768px) {
   .launches .card-container {
     display: grid;
-    padding: 10vw 0 0 5vw;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
   }
 }
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 1200px) {
   .launches .card-container {
     grid-template-columns: 1fr 1fr 1fr;
   }
@@ -226,6 +302,9 @@
   text-decoration: none;
   width: 60vw;
   background-color: #FFF;
+  backdrop-filter: blur(10px);
+  color: #000;
+  transition: all 0.3s ease-in-out;
 }
 @media only screen and (min-width: 768px) {
   .launches .card-container .card {
@@ -233,10 +312,16 @@
     flex-direction: column;
     justify-content: space-between;
     max-height: 550px;
+    min-height: 460px;
     max-width: 350px;
     align-items: center;
+    background-color: hsla(0, 3%, 23%, 0.3);
+    color: #FFF;
     gap: 1rem;
   }
+}
+.launches .card-container .card:hover {
+  transform: scale(1.1);
 }
 .launches .card-container .card-image {
   width: 60vw;
@@ -255,7 +340,6 @@
   }
 }
 .launches .card-container .card-text {
-  color: #000;
   font-size: 3.5vw;
 }
 @media only screen and (min-width: 768px) {
@@ -278,7 +362,6 @@
 .launches .card-container .card-title {
   font-size: 6vw;
   text-decoration: none;
-  color: #000;
 }
 @media only screen and (min-width: 768px) {
   .launches .card-container .card-title {
@@ -313,10 +396,30 @@
 @media only screen and (min-width: 768px) {
   .launches .card-container .card-location a {
     font-size: x-large;
+    color: #FFF;
   }
 }
 .launches .card-container .card a {
   text-decoration: none;
+}
+.launches .pagination {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+.launches .pagination button {
+  cursor: pointer;
+  padding: 1rem 2rem;
+  background: #00003360;
+  backdrop-filter: blur(10px);
+  border: 1px solid #000;
+  color: #FFF;
+  border-radius: 12px;
+}
+.launches .pagination button:hover {
+  transform: scale(1.1);
 }
 
 .about {
@@ -405,6 +508,12 @@ body {
   width: 100vw;
   max-height: 80px;
   gap: 2rem;
+  z-index: 5;
+}
+@media only screen and (min-width: 768px) {
+  .nav {
+    position: relative;
+  }
 }
 .nav .site-name {
   display: block;
