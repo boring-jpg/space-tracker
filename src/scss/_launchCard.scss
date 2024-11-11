@@ -1,55 +1,172 @@
-.card-container {
+@import 'config';
+.launches{
     display: flex;
     flex-direction: column;
-    align-items:center;
+    justify-content: center;
+    align-items: center;
 
-    .card {
-        border: 1px solid hsl(0, 2%, 46%);
-        border-radius: 20px;
-        box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
-        margin: 10px;
-        text-align: center;
-        text-decoration: none;
-        max-width: 250px;
-        max-height: 550px;
-        background-color: #FFF;
+    .card-container {
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+        @include for_breakpoint(tablet){
+            display: grid;
+            
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
 
-        &-image {
-            max-width: 100%;
-            margin: 0;
-            height: auto;
-            border-top-left-radius: 20px;
-            border-top-right-radius: 20px;
-            margin-bottom: 10px;
         }
 
-        &-text {
-            color: #000;
-
-            .card-countdown{
-                font-size: larger;
-                font-weight: bolder;
-                width: 100%;
-                height: auto;
-                margin:  1rem auto;
-            }
+        @include for_breakpoint(largeDesktop){
+            grid-template-columns: 1fr 1fr 1fr;
         }
-
-        &-company {
-            font-size: small;
-        }
-
-        &-location {
+    
+        .card {
+            border: 1px solid hsl(0, 2%, 46%);
+            border-radius: 20px;
+            box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
             margin: 10px;
+            text-align: center;
+            text-decoration: none;
+            width: 60vw;
+            background-color: #FFF;
+            backdrop-filter: blur(10px);
+            color: #000;
+            transition: all 0.3s ease-in-out;
+    
+            @include for_breakpoint(tablet){
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                max-height: 550px;
+                min-height: 460px;
+                max-width: 350px;
+                align-items: center;
+                background-color: $transparentbackground;
+                color: #FFF;
+                gap: 1rem;
+            }
 
-            a{
+            &:hover {
+                transform: scale(1.1);
+            }
+    
+            &-image {
+                width: 60vw;
+                height: auto;
+                border-top-left-radius: 20px;
+                border-top-right-radius: 20px;
+                margin-bottom: 10px;
+    
+                @include for_breakpoint(tablet){
+                    max-width: 50%;
+                    margin: 1rem auto;
+                    padding: 0.5rem;
+                    background-color: black;
+                    border-radius: 50%;
+                }
+            }
+    
+            &-text {
+                font-size: 3.5vw;
+    
+                @include for_breakpoint(tablet){
+                    font-size: x-large;
+                }
+                
+                .card-countdown{
+                    font-size: 5vw;
+                    font-weight: bolder;
+                    width: 100%;
+                    height: auto;
+                    margin:  1rem auto;
+    
+                    @include for_breakpoint(tablet){
+                        font-size: xx-large;
+                    }
+                }
+            }
+            &-title{
+                font-size: 6vw;
                 text-decoration: none;
-                color: #000;
+    
+                @include for_breakpoint(tablet){
+                    font-size: xx-large;
+                }
+    
+                &:visited {
+                    color: #000;
+                }
+            }
+    
+            &-company {
+                margin-top: 1rem;
+    
+                @include for_breakpoint(tablet){
+                    margin-top: 0;
+                    text-align: center;
+                }
+            }
+    
+            &-location {
+                margin: 10px;
+    
+                @include for_breakpoint(tablet){
+                    margin: 0;
+                }
+    
+                a{
+                    font-size: 3.5vw;
+                    text-decoration: none;
+                    color: #000;
+    
+                    @include for_breakpoint(tablet){
+                        font-size: x-large;
+                        color: #FFF;
+
+                    }
+                }
+            }
+    
+            a {
+                text-decoration: none;
+            }
+        }
+    }
+
+    .pagination {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        display: flex;
+        width: 80%;
+        gap: 1rem;
+        overflow: scroll;
+
+        @include for_breakpoint(tablet){
+            width: 100%;
+            justify-content: center;
+            overflow: visible;
+        }
+
+        &:nth-of-type(1){
+            display: none;
+            @include for_breakpoint(tablet){
+                display: inherit;
             }
         }
 
-        a {
-            text-decoration: none;
+        button {
+            cursor: pointer;
+            padding: 1rem 2rem;
+            background: #{$primaryColor}60;
+            backdrop-filter: blur(10px);
+            border: 1px solid #000;
+            color: #FFF;
+            border-radius: 12px;
+
+            &:hover {
+                transform: scale(1.1);
+            }
         }
     }
 }

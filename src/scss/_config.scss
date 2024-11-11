@@ -1,16 +1,15 @@
-// :root {
-//     --primary-font: Arial, Helvetica, sans-serif;
-//     --site-background: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F003%2F375%2F985%2Foriginal%2Fspace-galaxy-background-free-vector.jpg&f=1&nofb=1&ipt=cdf14f5567f638ddbe77cc0343164c2f6cc9d9819c9652aa9d47ed2b4045f14d&ipo=images);
-//     --page-background: hsla(0, 16%, 85%, 0.5);
-// }
+
 $primaryColor: #000033;
 $secondaryColor: #326B9B;
 $thirdaryColor: #333399;
+$transparentbackground: hsla(0, 3%, 23%, 0.3);
+$backgroundImage: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F003%2F375%2F985%2Foriginal%2Fspace-galaxy-background-free-vector.jpg&f=1&nofb=1&ipt=cdf14f5567f638ddbe77cc0343164c2f6cc9d9819c9652aa9d47ed2b4045f14d&ipo=images);
+
 
 $media_queries : (
-    "tablet" : "only screen and (min-width: 768px)",
-    "desktop" : "only screen and (min-width: 992px)",
-    "X-large" : "only screen and (min-width: 1200px)"
+    "tablet" : unquote("only screen and (min-width: 768px)"),
+    "desktop" : unquote("only screen and (min-width: 992px)"),
+    "largeDesktop" : unquote("only screen and (min-width: 1200px)")
 );
 
 @mixin for_breakpoint($breakpoints) {
@@ -18,7 +17,7 @@ $media_queries : (
     @each $breakpoint in $breakpoints {
         $conditions: append(
             $conditions,
-            #{inspect(map-get($media_queries, $breakpoints))},
+            #{inspect(map-get($media_queries, $breakpoint))},
             comma 
         );
     }
@@ -32,10 +31,7 @@ $media_queries : (
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
 
