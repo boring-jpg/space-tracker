@@ -436,6 +436,9 @@
 .launches .pagination button:hover {
   transform: scale(1.1);
 }
+.launches .pagination button.active {
+  background: #326B9B60;
+}
 
 .about {
   display: flex;
@@ -454,11 +457,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: hwb(30 36% 62%/0.2);
-  backdrop-filter: blur(7px);
+  border-radius: 20px;
+  background-color: #0000335F;
+  backdrop-filter: blur(10px);
 }
 .about-info-name {
   font-size: 10vw;
+  color: #FFF;
 }
 @media only screen and (min-width: 992px) {
   .about-info-name {
@@ -467,6 +472,7 @@
 }
 .about-info-p {
   font-size: 4vw;
+  color: #FFF;
 }
 @media only screen and (min-width: 992px) {
   .about-info-p {
@@ -506,11 +512,11 @@
 }
 .about-info .social-links a {
   text-decoration: none;
-  color: black;
+  color: #FFF;
 }
 
 body {
-  background: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F003%2F375%2F985%2Foriginal%2Fspace-galaxy-background-free-vector.jpg&f=1&nofb=1&ipt=cdf14f5567f638ddbe77cc0343164c2f6cc9d9819c9652aa9d47ed2b4045f14d&ipo=images) fixed;
+  background: linear-gradient(135deg, #326B9B, #333399, #000033) fixed;
 }
 
 .nav {
@@ -605,6 +611,7 @@ body {
   padding-right: 0.5rem;
   padding: 2.2vh 1vw;
   font-size: 4vw;
+  font-family: cursive;
 }
 @media only screen and (min-width: 768px) {
   .nav-list li a {

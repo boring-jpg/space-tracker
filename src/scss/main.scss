@@ -1,7 +1,7 @@
 @import 'config', 'loading', 'launchDetail', 'launchCard', 'about';
 
 body {
-    background: $backgroundImage fixed
+    background: linear-gradient(135deg,$secondaryColor,$thirdaryColor ,$primaryColor) fixed
 }
 
 .nav {
@@ -92,6 +92,7 @@ body {
                 padding-right: .5rem;
                 padding: 2.2vh 1vw;
                 font-size: 4vw;
+                font-family: cursive;
                 @include for_breakpoint(tablet){
                     font-size: 40px;
                 }
