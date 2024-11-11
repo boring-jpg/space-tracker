@@ -279,7 +279,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 15vh;
 }
 @media only screen and (min-width: 768px) {
   .launches .card-container {
@@ -406,8 +405,24 @@
   margin-top: 1rem;
   margin-bottom: 1rem;
   display: flex;
+  width: 80%;
   gap: 1rem;
-  justify-content: space-between;
+  overflow: scroll;
+}
+@media only screen and (min-width: 768px) {
+  .launches .pagination {
+    width: 100%;
+    justify-content: center;
+    overflow: visible;
+  }
+}
+.launches .pagination:nth-of-type(1) {
+  display: none;
+}
+@media only screen and (min-width: 768px) {
+  .launches .pagination:nth-of-type(1) {
+    display: inherit;
+  }
 }
 .launches .pagination button {
   cursor: pointer;

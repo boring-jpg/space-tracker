@@ -38,6 +38,11 @@ function LaunchCards() {
   return (
     <>
       <main className="launches">
+      <Pagination
+      totalPosts={launchData.length}
+      postPerPage={postPerPage}
+      setCurrentPage={setCurrentPage}
+      />
         <section className="card-container">
           {currentPosts.map((launch) => (
             <Link to={`/launch/${launch.id}/`} key={launch.id} className="card">
