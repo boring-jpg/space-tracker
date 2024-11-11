@@ -272,17 +272,17 @@
 .launches {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 .launches .card-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  margin-top: 10vh;
 }
 @media only screen and (min-width: 768px) {
   .launches .card-container {
     display: grid;
+    margin-top: 0;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
   }
@@ -443,6 +443,7 @@
   align-items: center;
   height: 90vh;
   width: 100vw;
+  z-index: -1;
 }
 .about-info {
   height: 50vh;
@@ -455,7 +456,6 @@
   align-items: center;
   background-color: hwb(30 36% 62%/0.2);
   backdrop-filter: blur(7px);
-  z-index: -1;
 }
 .about-info-name {
   font-size: 10vw;

@@ -4,7 +4,9 @@
     justify-content: center;
     align-items: center;
     height: 90vh;
-    width: 100vw;    
+    width: 100vw;  
+    z-index: -1;
+  
     
     &-info {
         height: 50vh;
@@ -17,7 +19,6 @@
         align-items: center;
         background-color: hwb(30 36% 62% / 0.2);
         backdrop-filter: blur(7px);
-        z-index: -1;
 
         &-name {
             font-size: 10vw;
