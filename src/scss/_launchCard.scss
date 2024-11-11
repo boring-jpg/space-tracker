@@ -2,16 +2,16 @@
 .launches{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 
     .card-container {
         display: flex;
         flex-direction: column;
-        align-items:center;
+        margin-top: 10vh;
+
         @include for_breakpoint(tablet){
             display: grid;
-            
+            margin-top: 0;
             grid-template-columns: 1fr 1fr;
             gap: 1rem;
 
