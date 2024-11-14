@@ -2,6 +2,7 @@
   "homepage": "http://boring-jpg.github.io/space-tracker",
   "name": "frontend",
   "private": true,
+  
   "version": "0.0.0",
   "type": "module",
   "scripts": {
