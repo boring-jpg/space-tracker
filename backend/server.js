@@ -16,7 +16,7 @@ app.use('/api/user/', userRoutes);
 
 
 // something bad went wrong
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
     console.error(err.stack);
 
     res.status(err.status || 500).json({

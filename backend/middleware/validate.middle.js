@@ -48,4 +48,4 @@ export const validateLogin = async (req, res, next) => {
     req.body.email = validate.normalizeEmail(email).trim();
 
     next();
-}
+};

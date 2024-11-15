@@ -1,4 +1,3 @@
-import { response } from "express";
 import bcrypt from 'bcrypt';
 import User from "../models/user.model.js"
 
@@ -8,7 +7,6 @@ export const loginUser = async (req, res) => {
     try{
 
         const user = await User.find({email: email})
-        console.log(user);
 
         if(!user[0]) {
 
