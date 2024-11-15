@@ -15,6 +15,16 @@ app.use(express.json());
 app.use('/api/user/', userRoutes)
 
 
+// something bad went wrong
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+
+    res.status(err.status || 500).json({
+        success: false,
+        message: "unexpected error has occured"
+    });
+});
+
 app.listen(port, async () => {
     
     try{
