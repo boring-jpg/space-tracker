@@ -29,3 +29,23 @@ export const validateSignup = async (req, res, next) => {
 
     next();
 };
+
+export const validateLogin = async (req, res, next) => {
+    let {email, password} = req.body;
+
+    const errorMsg = (message) => {
+        return res.status(400).json({
+            success: false,
+            error: message
+        });
+    };
+
+    if (!email || !password){
+        return errorMsg("Missing email or password");
+    };
+
+    // normalize email
+    req.body.email = validate.normalizeEmail(email).trim();
+
+    next();
+}

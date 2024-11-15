@@ -1,10 +1,49 @@
 import { response } from "express";
+import bcrypt from 'bcrypt';
 import User from "../models/user.model.js"
 
 export const loginUser = async (req, res) => {
-    res.status(200).json({
-        msg: 'login user'
-    });
+    const {email, password} = req.body;
+    
+    try{
+
+        const user = await User.find({email: email})
+        console.log(user);
+
+        if(!user[0]) {
+
+            return res.status(400).json({
+                success: false,
+                error: "Invalid username or password."
+            });
+
+        };
+
+        if(!await bcrypt.compare(password, user[0].password)){
+
+            return res.status(400).json({
+                success: false,
+                error: "Invalid username or password."
+            });
+
+        };
+
+        res.status(200).json({
+            success: true,
+            message: "Successful login"
+        });
+
+    } catch (err) {
+
+        console.error(err.message);
+        res.status(500).json({
+            success: false,
+            error: "Server error:"
+        });
+
+    };
+
+
 };
 
 export const registerUser = async (req, res) => {
@@ -13,7 +52,6 @@ export const registerUser = async (req, res) => {
     // make sure email not alreay used.
     const userExists = await User.findOne({email});
     if (userExists){
-
        return res.status(400).json({
             success: false,
             error: "Email already in use."

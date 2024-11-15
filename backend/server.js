@@ -12,7 +12,7 @@ const port = process.env.PORT;
 app.use(express.json());
 
 // endpoints
-app.use('/api/user/', userRoutes)
+app.use('/api/user/', userRoutes);
 
 
 // something bad went wrong
@@ -33,8 +33,10 @@ app.listen(port, async () => {
         await connectDB();
 
     } catch (err) {
+
         console.error(err.message);
-    }
+
+    };
 
     console.log(`\nServer successfully started. Listning on http://localhost:${port}`);
 });
