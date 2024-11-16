@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import { connectDB } from './config/db.js';
+import session from 'express-session';
+import { connectDB, sessionStore } from './config/db.js';
 import userRoutes from './routes/user.route.js'
 
 dotenv.config();
@@ -8,21 +9,35 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT;
 
+app.use(
+    session({
+        secret: process.env.SESSION_SECRET,
+        resave: false,
+        saveUninitialized: true,
+        store: sessionStore,
+        cookie: {
+            maxAge: 1000 * 60 * 60 * 24 // 24 hours
+        }
+    })
+);
+
 // allow express to parse body
 app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
 // endpoints
 app.use('/api/user/', userRoutes);
 
-
-// something bad went wrong
-app.use((err, req, res) => {
+// error handling
+app.use((err, req, res, next) => {
     console.error(err.stack);
 
     res.status(err.status || 500).json({
         success: false,
         message: "unexpected error has occured"
     });
+
+    // next();
 });
 
 app.listen(port, async () => {

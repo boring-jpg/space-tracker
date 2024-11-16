@@ -1,4 +1,9 @@
 import mongoose from "mongoose";
+import MongoStore from "connect-mongo";
+import dotenv from 'dotenv';
+
+dotenv.config()
+
 
 
 export const connectDB = async () => {
@@ -10,4 +15,9 @@ export const connectDB = async () => {
         process.exit(1);
     }
 }
+
+export const sessionStore = new MongoStore({
+    mongoUrl: process.env.MONGO,
+    collectionName: 'sessions'
+});
 
