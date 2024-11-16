@@ -1,12 +1,14 @@
 import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
+import {Link} from "react-router-dom";
+
 
 const getWindowSize = () => {
   const {innerWidth, innerHeight} = window;
   return {innerWidth, innerHeight}
 }
 
-function Navbar() {
+function Navbar({loggedIn}) {
   const [isOpen, setIsOpen] = useState(false);
   const [windowSize, setWindowSize] = useState(getWindowSize())
 
@@ -15,7 +17,7 @@ function Navbar() {
 
     return (
       <li className={path === href ? "active" : ""}>
-        <a href={href}>{children}</a>
+        <Link to={href}>{children}</Link>
       </li>
     );
   };
@@ -31,16 +33,17 @@ function Navbar() {
     };
   }, []);
   
-
+  
   return (
     
     <nav className="nav">
-      <a href="/" className="site-name">
+      <Link to="/" className="site-name">
         Space-Tracker
-      </a>
+      </Link>
       <button className="hamburger" onClick={() => setIsOpen(!isOpen)}><i className={isOpen ? "fa-solid fa-x":"fa-solid fa-bars "}></i></button>
         <ul className={isOpen && windowSize.innerWidth <=767 ? "nav-list isOpen": "nav-list"}>
           <div className={windowSize.innerWidth <= 767 ? "mobile-nav" : ""}>
+            <CustomLink href={loggedIn ? "/favorites": "/login"}>{loggedIn ? 'Favorites' : 'Login'}</CustomLink>
             <CustomLink href="/about">About</CustomLink>
           </div>
         </ul>
