@@ -3,30 +3,40 @@ import User from "../models/user.model.js"
 
 export const loginUser = async (req, res) => {
     const {email, password} = req.body;
-    
+    console.log(req.session);
     try{
 
-        const user = await User.find({email: email})
+        const user = await User.findOne({email: email})
 
-        if(!user[0]) {
+        if(!user) {
 
-            return res.status(400).json({
+            return res.status(401).json({
                 success: false,
                 error: "Invalid username or password."
             });
 
         };
 
-        if(!await bcrypt.compare(password, user[0].password)){
+        if(!await bcrypt.compare(password, user.password)){
 
-            return res.status(400).json({
+            return res.status(401).json({
                 success: false,
                 error: "Invalid username or password."
             });
 
         };
+        
+        if (req.session.userID === String(user._id)){
+            return res.status(409).json({
+                success: false,
+                error: "User is already logged in."
+            });
+        };
 
-        res.status(200).json({
+
+        req.session.userID = user._id;
+    
+        return res.status(200).json({
             success: true,
             message: "Successful login"
         });
@@ -34,14 +44,12 @@ export const loginUser = async (req, res) => {
     } catch (err) {
 
         console.error(err.message);
-        res.status(500).json({
+        return res.status(500).json({
             success: false,
             error: "Server error:"
         });
 
     };
-
-
 };
 
 export const registerUser = async (req, res) => {
@@ -78,6 +86,12 @@ export const registerUser = async (req, res) => {
             error: "Server error"
         });
     };
+};
 
+export const authCheck = async (req, res) => {
+    return res.status(200).json({
+        success: true,
+        message: "User is logged in."
+    });
 };
 
