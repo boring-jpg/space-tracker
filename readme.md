@@ -1,3 +1,5 @@
+![example workflow](https://github.com/boring-jpg/space-tracker/actions/workflows/test_front.yml/badge.svg)
+
 # Space-Tracker
 
 Space-Tracker is a web app that provides real-time data on upcoming space launches. It features dynamic data fetching, countdown timers, and a clean, responsive design. This project is my capstone for a web development bootcamp, demonstrating my skills in front-end development with React and modern web technologies.
