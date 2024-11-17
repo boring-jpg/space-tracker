@@ -3,6 +3,7 @@ import getLaunchData from "../api/lldev_calls.js";
 import Countdown from "./utility/Countdown.jsx";
 import Loading from "./utility/loading.jsx";
 import {changeTitle} from "./utility/changeTitle.js";
+import React from "react";
 
 function LaunchDetails() {
   const [launchDetail, setLaunchDetails] = useState(null);
@@ -46,7 +47,7 @@ function LaunchDetails() {
           <a href={launchDetail.pad.map_url} target="_blank">
             <img
               src={launchDetail.pad.map_image}
-              alt={"map of" + launchDetail.pad.location.name}
+              alt={"map of " + launchDetail.pad.location.name}
               className="launch-detail-info-location-image"
             ></img>
           </a>
@@ -61,20 +62,20 @@ function LaunchDetails() {
         </div>
 
         {launchDetail.vid_urls
-        .filter((url) => url.url.includes("youtube.com"))
-        .slice(0, 1)
-        .map((url) => (
-          <div className="launch-detail-video" key={url.url}>
-            <iframe
-              width="560"
-              height="315"
-              src={`https://www.youtube.com/embed/${url.url.split("v=")[1]}`}
-              title={url.title}
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          </div>
-        ))}
+          .filter((url) => url.url.includes("youtube.com"))
+          .slice(0, 1)
+          .map((url) => (
+            <div className="launch-detail-video" key={url.url}>
+              <iframe
+                width="560"
+                height="315"
+                src={`https://www.youtube.com/embed/${url.url.split("v=")[1]}`}
+                title={url.title}
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          ))}
 
         <div className="launch-detail-mission">
           <h2>Mission: {launchDetail.mission.name}</h2>
@@ -92,8 +93,6 @@ function LaunchDetails() {
           ))}
         </div>
       </section>
-
-      
     </main>
   );
 }

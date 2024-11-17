@@ -1,16 +1,16 @@
 import PropTypes from "prop-types";
-import { useState, useEffect } from "react";
+import {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
-
+import React from "react";
 
 const getWindowSize = () => {
   const {innerWidth, innerHeight} = window;
-  return {innerWidth, innerHeight}
-}
+  return {innerWidth, innerHeight};
+};
 
 function Navbar({loggedIn}) {
   const [isOpen, setIsOpen] = useState(false);
-  const [windowSize, setWindowSize] = useState(getWindowSize())
+  const [windowSize, setWindowSize] = useState(getWindowSize());
 
   const CustomLink = ({href, children}) => {
     const path = window.location.pathname;
@@ -25,28 +25,34 @@ function Navbar({loggedIn}) {
   useEffect(() => {
     const handleResize = () => {
       setWindowSize(getWindowSize());
-    }
-    window.addEventListener('resize', handleResize);
+    };
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
-  
-  
+
   return (
-    
     <nav className="nav">
       <Link to="/" className="site-name">
         Space-Tracker
       </Link>
-      <button className="hamburger" onClick={() => setIsOpen(!isOpen)}><i className={isOpen ? "fa-solid fa-x":"fa-solid fa-bars "}></i></button>
-        <ul className={isOpen && windowSize.innerWidth <=767 ? "nav-list isOpen": "nav-list"}>
-          <div className={windowSize.innerWidth <= 767 ? "mobile-nav" : ""}>
-            <CustomLink href={loggedIn ? "/favorites": "/login"}>{loggedIn ? 'Favorites' : 'Login'}</CustomLink>
-            <CustomLink href="/about">About</CustomLink>
-          </div>
-        </ul>
+      <button className="hamburger" onClick={() => setIsOpen(!isOpen)}>
+        <i className={isOpen ? "fa-solid fa-x" : "fa-solid fa-bars "}></i>
+      </button>
+      <ul
+        className={
+          isOpen && windowSize.innerWidth <= 767 ? "nav-list isOpen" : "nav-list"
+        }
+      >
+        <div className={windowSize.innerWidth <= 767 ? "mobile-nav" : ""}>
+          <CustomLink href={loggedIn ? "/favorites" : "/login"}>
+            {loggedIn ? "Favorites" : "Login"}
+          </CustomLink>
+          <CustomLink href="/about">About</CustomLink>
+        </div>
+      </ul>
     </nav>
   );
 }
@@ -54,6 +60,7 @@ function Navbar({loggedIn}) {
 Navbar.propTypes = {
   href: PropTypes.string,
   children: PropTypes.string,
+  loggedIn: PropTypes.bool,
 };
 
 export default Navbar;

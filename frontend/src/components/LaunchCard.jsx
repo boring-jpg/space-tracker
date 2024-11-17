@@ -5,6 +5,7 @@ import getLaunchData from "../api/lldev_calls.js";
 import Loading from "./utility/loading.jsx";
 import {changeTitle} from "./utility/changeTitle.js";
 import Pagination from "./utility/Pagination.jsx";
+import React from "react";
 
 function LaunchCards() {
   const [launchData, setLaunchData] = useState([]);
@@ -16,6 +17,7 @@ function LaunchCards() {
   useEffect(() => {
     const fetchLaunchData = async () => {
       try {
+        setPostPerPage(6);
         changeTitle("Space-Tracker" + " | " + "Loading...");
         const data = await getLaunchData("upcoming");
         setLaunchData(data);
@@ -33,17 +35,17 @@ function LaunchCards() {
 
   const lastPostIndex = currentPage * postPerPage;
   const firstPostIndex = lastPostIndex - postPerPage;
-  const currentPosts = launchData.slice(firstPostIndex,lastPostIndex);
+  const currentPosts = launchData.slice(firstPostIndex, lastPostIndex);
 
   return (
     <>
       <main className="launches">
-      <Pagination
-      totalPosts={launchData.length}
-      postPerPage={postPerPage}
-      setCurrentPage={setCurrentPage}
-      currentPage={currentPage}
-      />
+        <Pagination
+          totalPosts={launchData.length}
+          postPerPage={postPerPage}
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
+        />
         <section className="card-container">
           {currentPosts.map((launch) => (
             <Link to={`/launch/${launch.id}/`} key={launch.id} className="card">
@@ -53,7 +55,9 @@ function LaunchCards() {
                 className="card-image"
               ></img>
               <h2 className="card-title">{launch.rocket.configuration.full_name}</h2>
-              <p className="card-company card-text">{launch.launch_service_provider.name}</p>
+              <p className="card-company card-text">
+                {launch.launch_service_provider.name}
+              </p>
               <div className="card-text">
                 <Countdown net={launch.net} />
               </div>
@@ -64,14 +68,12 @@ function LaunchCards() {
           ))}
         </section>
         <Pagination
-      totalPosts={launchData.length}
-      postPerPage={postPerPage}
-      setCurrentPage={setCurrentPage}
-      currentPage={currentPage}
-
-      />
+          totalPosts={launchData.length}
+          postPerPage={postPerPage}
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
+        />
       </main>
-      
     </>
   );
 }

@@ -1,5 +1,6 @@
 import {useState, useEffect} from "react";
 import PropTypes from "prop-types";
+import React from "react";
 
 function Countdown(props) {
   const [time, setTime] = useState(new Date());
@@ -30,9 +31,8 @@ function Countdown(props) {
 
   return difference > 0 ? (
     <p className="card-countdown">
-      {" "}
-      {days > 0 ? `${days} Days` : ""} T-{padZero(hours)}:{padZero(minutes)}:
-      {padZero(seconds)}{" "}
+      {days > 0 ? `${days} Days` : ""}T-{padZero(hours)}:{padZero(minutes)}:
+      {padZero(seconds)}
     </p>
   ) : (
     <p className="card-countdown">Launched on {countdownDate.toLocaleDateString()}</p>
