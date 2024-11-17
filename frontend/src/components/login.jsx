@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {bool} from "prop-types";
+import {func} from "prop-types";
 import {useNavigate} from "react-router-dom";
 import {login} from "../api/backend_calls";
 
@@ -56,5 +56,5 @@ export const Login = ({setIsLoggedIn}) => {
 };
 
 Login.propTypes = {
-  setIsLoggedIn: bool,
+  setIsLoggedIn: func,
 };

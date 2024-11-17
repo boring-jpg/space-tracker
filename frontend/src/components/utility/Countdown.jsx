@@ -35,7 +35,9 @@ function Countdown(props) {
       {padZero(seconds)}
     </p>
   ) : (
-    <p className="card-countdown">Launched on {countdownDate.toUTCString().slice(5, 16)}</p>
+    <p className="card-countdown">
+      Launched on {countdownDate.toUTCString().slice(5, 16)}
+    </p>
   );
 }
 

@@ -42,15 +42,15 @@ const mockLaunchData = {
 
 describe(LaunchDetails, () => {
   it("should display loading during inital mount", () => {
-    getLaunchData.mockResolvedValueOnce([]);
-    render(<LaunchDetails />);
+    act(() => getLaunchData.mockResolvedValueOnce([]));
+    act(() => render(<LaunchDetails />));
 
     const main = screen.getByRole("main");
     expect(main.classList.contains("loading-page")).toBeTruthy();
   });
 
   it("should display launch details after data is fetched", async () => {
-    getLaunchData.mockResolvedValueOnce(mockLaunchData);
+    act(() => getLaunchData.mockResolvedValueOnce(mockLaunchData));
 
     await act(async () =>
       render(
@@ -82,7 +82,7 @@ describe(LaunchDetails, () => {
 
   it("should handle missing images", async () => {
     const dataWithNoImage = {...mockLaunchData, image: null};
-    getLaunchData.mockResolvedValueOnce(dataWithNoImage);
+    act(() => getLaunchData.mockResolvedValueOnce(dataWithNoImage));
 
     await act(async () =>
       render(
@@ -100,12 +100,14 @@ describe(LaunchDetails, () => {
   });
 
   it("should render YouTube video if URL exists", async () => {
-    getLaunchData.mockResolvedValueOnce(mockLaunchData);
+    act(() => getLaunchData.mockResolvedValueOnce(mockLaunchData));
 
-    render(
-      <MemoryRouter initialEntries={["/launch/1"]}>
-        <LaunchDetails />
-      </MemoryRouter>
+    act(() =>
+      render(
+        <MemoryRouter initialEntries={["/launch/1"]}>
+          <LaunchDetails />
+        </MemoryRouter>
+      )
     );
 
     await waitFor(() => {

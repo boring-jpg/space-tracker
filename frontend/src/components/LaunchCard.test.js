@@ -47,7 +47,8 @@ describe(LaunchCards, () => {
 
   it("should display loading on mount", () => {
     getLaunchData.mockResolvedValueOnce([]);
-    render(<LaunchCards />);
+
+    act(() => render(<LaunchCards />));
 
     const main = screen.getByRole("main");
     expect(main.classList.contains("loading-page")).toBeTruthy();

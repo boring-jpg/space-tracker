@@ -1,5 +1,5 @@
 import React from "react";
-import {number} from "prop-types";
+import {func, number} from "prop-types";
 
 function Pagination({totalPosts, postPerPage, setCurrentPage, currentPage}) {
   let pages = [];
@@ -27,6 +27,6 @@ Pagination.propTypes = {
   totalPosts: number,
   postPerPage: number,
   currentPage: number,
-  setCurrentPage: number,
+  setCurrentPage: func,
 };
 export default Pagination;
