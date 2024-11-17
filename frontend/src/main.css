@@ -22,7 +22,8 @@
   }
 }
 @keyframes spin {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0.2em 0px 0 0px currentcolor;
   }
   12% {
@@ -65,7 +66,8 @@
   color: #fff;
   position: fixed;
 }
-.loading:before, .loading:after {
+.loading:before,
+.loading:after {
   content: "";
   display: block;
   position: absolute;
@@ -78,7 +80,7 @@
   animation: 1s spin linear infinite;
 }
 .loading:after {
-  color: #FF3D00;
+  color: #ff3d00;
   transform: rotateY(70deg);
   animation-delay: 0.4s;
 }
@@ -118,7 +120,7 @@
 .launch-detail-info-text {
   display: flex;
   flex-direction: column;
-  color: #FFF;
+  color: #fff;
   text-align: center;
   align-items: center;
   margin: 2rem;
@@ -136,7 +138,7 @@
 .launch-detail-info-text p.card-countdown {
   font-size: 7vw;
   font-weight: bolder;
-  color: #FFF;
+  color: #fff;
 }
 @media only screen and (min-width: 768px) {
   .launch-detail-info-text p.card-countdown {
@@ -171,7 +173,7 @@
 .launch-detail-info-text-wiki a {
   font-size: 5.5vw;
   text-decoration: none;
-  color: #FFF;
+  color: #fff;
 }
 @media only screen and (min-width: 768px) {
   .launch-detail-info-text-wiki a {
@@ -210,7 +212,7 @@
 .launch-detail-mission h2 {
   text-align: center;
   font-size: 8vw;
-  color: #FFF;
+  color: #fff;
 }
 @media only screen and (min-width: 768px) {
   .launch-detail-mission h2 {
@@ -222,7 +224,7 @@
   text-align: center;
   font-size: 4vw;
   line-height: 2;
-  color: #FFF;
+  color: #fff;
 }
 @media only screen and (min-width: 768px) {
   .launch-detail-mission p {
@@ -300,7 +302,7 @@
   text-align: center;
   text-decoration: none;
   width: 60vw;
-  background-color: #FFF;
+  background-color: #fff;
   backdrop-filter: blur(10px);
   color: #000;
   transition: all 0.3s ease-in-out;
@@ -315,7 +317,7 @@
     max-width: 350px;
     align-items: center;
     background-color: hsla(0, 3%, 23%, 0.3);
-    color: #FFF;
+    color: #fff;
     gap: 1rem;
   }
 }
@@ -395,7 +397,7 @@
 @media only screen and (min-width: 768px) {
   .launches .card-container .card-location a {
     font-size: x-large;
-    color: #FFF;
+    color: #fff;
   }
 }
 .launches .card-container .card a {
@@ -430,14 +432,14 @@
   background: #00003360;
   backdrop-filter: blur(10px);
   border: 1px solid #000;
-  color: #FFF;
+  color: #fff;
   border-radius: 12px;
 }
 .launches .pagination button:hover {
   transform: scale(1.1);
 }
 .launches .pagination button.active {
-  background: #326B9B60;
+  background: #326b9b60;
 }
 
 .about {
@@ -458,12 +460,12 @@
   justify-content: center;
   align-items: center;
   border-radius: 20px;
-  background-color: #0000335F;
+  background-color: #0000335f;
   backdrop-filter: blur(10px);
 }
 .about-info-name {
   font-size: 10vw;
-  color: #FFF;
+  color: #fff;
 }
 @media only screen and (min-width: 992px) {
   .about-info-name {
@@ -472,7 +474,7 @@
 }
 .about-info-p {
   font-size: 4vw;
-  color: #FFF;
+  color: #fff;
 }
 @media only screen and (min-width: 992px) {
   .about-info-p {
@@ -512,7 +514,7 @@
 }
 .about-info .social-links a {
   text-decoration: none;
-  color: #FFF;
+  color: #fff;
 }
 
 .login {
@@ -541,11 +543,11 @@
 }
 
 body {
-  background: linear-gradient(135deg, #326B9B, #333399, #000033) fixed;
+  background: linear-gradient(135deg, #326b9b, #333399, #000033) fixed;
 }
 
 .nav {
-  background: #0000337F;
+  background: #0000337f;
   backdrop-filter: blur(9px);
   color: #fff;
   display: flex;
@@ -581,7 +583,7 @@ body {
   top: 0;
   right: 0;
   margin: auto;
-  background: #326B9B6F;
+  background: #326b9b6f;
   backdrop-filter: blur(10px);
   z-index: -1;
 }
@@ -602,7 +604,7 @@ body {
   border: none;
   background: #00003300;
   backdrop-filter: blur(10px);
-  color: #FFF;
+  color: #fff;
 }
 .nav .hamburger:hover {
   cursor: pointer;
@@ -648,6 +650,6 @@ body {
   padding-bottom: 1.2vh;
 }
 .nav-list li:hover {
-  background-color: #3333999F;
+  background-color: #3333999f;
   backdrop-filter: blur(10px);
-}/*# sourceMappingURL=main.css.map */
+} /*# sourceMappingURL=main.css.map */
