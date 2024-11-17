@@ -61,14 +61,14 @@ describe(Countdown, () => {
   });
 
   it("should display correct launch day", () => {
+    jest.useRealTimers();
     // Unix epoch
     const net = new Date(0);
 
-    render(<Countdown net={net.toUTCString()} />);
+    render(<Countdown net={net} />);
 
     const text = screen.getByText(/Launched/).textContent;
-    expect(text).toBe("Launched on 12/31/1969");
-    // Takes ~ 1 second to mount
+    expect(text).toBe(`Launched on ${net.toUTCString().slice(5, 16)}`);
 
     jest.useRealTimers();
   });
