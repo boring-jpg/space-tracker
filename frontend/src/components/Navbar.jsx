@@ -17,7 +17,9 @@ function Navbar({loggedIn}) {
 
     return (
       <li className={path === href ? "active" : ""}>
-        <Link to={href}>{children}</Link>
+        <Link to={href} onClick={() => setIsOpen(!isOpen)}>
+          {children}
+        </Link>
       </li>
     );
   };
@@ -35,7 +37,13 @@ function Navbar({loggedIn}) {
 
   return (
     <nav className="nav">
-      <Link to="/" className="site-name">
+      <Link
+        to="/"
+        className="site-name"
+        onClick={() => {
+          isOpen ? setIsOpen(!isOpen) : "";
+        }}
+      >
         Space-Tracker
       </Link>
       <button className="hamburger" onClick={() => setIsOpen(!isOpen)}>
@@ -46,7 +54,7 @@ function Navbar({loggedIn}) {
           isOpen && windowSize.innerWidth <= 767 ? "nav-list isOpen" : "nav-list"
         }
       >
-        <div className={windowSize.innerWidth <= 767 ? "mobile-nav" : ""}>
+        <div className={windowSize.innerWidth <= 767 ? "mobile-nav" : "desktop-nav"}>
           <CustomLink href={loggedIn ? "/favorites" : "/login"}>
             {loggedIn ? "Favorites" : "Login"}
           </CustomLink>
