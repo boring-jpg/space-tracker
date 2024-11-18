@@ -50,7 +50,7 @@ function LaunchCards() {
           {currentPosts.map((launch) => (
             <Link to={`/launch/${launch.id}/`} key={launch.id} className="card">
               <img
-                src={launch.image.thumbnail_url}
+                src={launch.image?.thumbnail_url}
                 alt={launch.name}
                 className="card-image"
               ></img>
