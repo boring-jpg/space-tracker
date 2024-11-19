@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import {useState, useEffect} from "react";
-import {Link} from "react-router-dom";
+import { logout } from "../api/backend_calls";
+import {Link, useNavigate} from "react-router-dom";
 import React from "react";
 
 const getWindowSize = () => {
@@ -8,9 +9,10 @@ const getWindowSize = () => {
   return {innerWidth, innerHeight};
 };
 
-function Navbar({loggedIn}) {
+function Navbar({loggedIn, setIsLoggedIn}) {
   const [isOpen, setIsOpen] = useState(false);
   const [windowSize, setWindowSize] = useState(getWindowSize());
+  const navigate = useNavigate();
 
   const CustomLink = ({href, children}) => {
     const path = window.location.pathname;
@@ -22,6 +24,22 @@ function Navbar({loggedIn}) {
         </Link>
       </li>
     );
+  };
+
+  const handleLogout = async() => {
+    try{
+      const response = await logout();
+      if (response.success === true){
+        setIsLoggedIn(false);
+        navigate(0);
+      }
+      if(response.success === false) {
+        alert(response.error);
+      }
+    } catch (e){
+      console.error(e);
+      alert("An error occurred while logging out." + ` ${e}`);
+    }
   };
 
   useEffect(() => {
@@ -52,13 +70,22 @@ function Navbar({loggedIn}) {
       <ul
         className={
           isOpen && windowSize.innerWidth <= 767 ? "nav-list isOpen" : "nav-list"
-        }
-      >
+        }>
         <div className={windowSize.innerWidth <= 767 ? "mobile-nav" : "desktop-nav"}>
           <CustomLink href={loggedIn ? "/favorites" : "/login"}>
             {loggedIn ? "Favorites" : "Login"}
           </CustomLink>
           <CustomLink href="/about">About</CustomLink>
+          {loggedIn ? (
+            <li>
+              <a href="" onClick={
+                () => {
+                  handleLogout();
+                }
+              }>Logout</a>
+            </li>
+          ) :
+          ""}
         </div>
       </ul>
     </nav>
@@ -69,6 +96,7 @@ Navbar.propTypes = {
   href: PropTypes.string,
   children: PropTypes.string,
   loggedIn: PropTypes.bool,
+  setIsLoggedIn: PropTypes.func
 };
 
 export default Navbar;

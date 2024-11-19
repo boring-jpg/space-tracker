@@ -1,7 +1,8 @@
 
 export const isLoggedIn = async (req, res, next) => {
 
-    if (!req.session.userID){
+    console.log(req.session);
+    if (req.session.loggedIn){
 
         return res.status(401).json({
             success: false,

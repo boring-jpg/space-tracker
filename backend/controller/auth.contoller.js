@@ -26,7 +26,7 @@ export const loginUser = async (req, res) => {
 
         };
         
-        if (req.session.userID === String(user._id)){
+        if (req.session.loggedIn === true){
             return res.status(409).json({
                 success: false,
                 error: "User is already logged in."
@@ -35,6 +35,7 @@ export const loginUser = async (req, res) => {
 
 
         req.session.userID = user._id;
+        req.session.loggedIn = true;
     
         return res.status(200).json({
             success: true,
@@ -95,3 +96,29 @@ export const authCheck = async (req, res) => {
     });
 };
 
+export const logout = (req, res) => {
+
+    try{
+        if(req.session.loggedIn === true){
+            req.session.loggedIn = false;
+            res.status(200).json({
+                success: true,
+                message: "Successfully logged out."
+            })
+        } else {
+            res.status(400).json({
+                success: false,
+                error: "user is not logged in."
+            });
+        };
+    } catch (e){
+        console.error(e.message);
+        res.status(500).json({
+            success: false,
+            error: "server error"
+        });
+    };
+    
+
+
+}
