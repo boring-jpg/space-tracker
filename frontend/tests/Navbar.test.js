@@ -4,7 +4,7 @@
 import {expect, it, describe} from "@jest/globals";
 import {render, screen, fireEvent} from "@testing-library/react";
 import {MemoryRouter} from "react-router-dom";
-import Navbar from "./Navbar.jsx";
+import Navbar from "../src/components/Navbar.jsx";
 import React from "react";
 
 describe(Navbar, () => {

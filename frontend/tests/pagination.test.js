@@ -3,7 +3,7 @@
  */
 import {expect, it, jest, describe, afterAll} from "@jest/globals";
 import {render, screen, fireEvent, cleanup} from "@testing-library/react";
-import Pagination from "./Pagination.jsx";
+import Pagination from "../src/components/utility/Pagination.jsx";
 import React from "react";
 
 describe(Pagination, () => {

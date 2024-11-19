@@ -3,7 +3,7 @@
  */
 import {expect, it, describe} from "@jest/globals";
 import {render, screen} from "@testing-library/react";
-import Loading from "./loading.jsx";
+import Loading from "../src/components/utility/loading.jsx";
 import React from "react";
 
 describe(Loading, () => {

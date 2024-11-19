@@ -4,11 +4,11 @@
 import {describe, expect, it, jest, beforeEach} from "@jest/globals";
 import {act, render, screen, waitFor} from "@testing-library/react";
 import {MemoryRouter} from "react-router-dom";
-import getLaunchData from "../api/lldev_calls.js";
-import LaunchCards from "./LaunchCard.jsx";
+import getLaunchData from "../src/api/lldev_calls.js";
+import LaunchCards from "../src/components/LaunchCard.jsx";
 import React from "react";
 
-jest.mock("../api/lldev_calls", () => ({
+jest.mock("../src/api/lldev_calls", () => ({
   __esModule: true,
   default: jest.fn(),
 }));
@@ -45,10 +45,10 @@ describe(LaunchCards, () => {
     getLaunchData.mockResolvedValue(mockLaunchData);
   });
 
-  it("should display loading on mount", () => {
+  it("should display loading on mount", async () => {
     getLaunchData.mockResolvedValueOnce([]);
 
-    act(() => render(<LaunchCards />));
+    render(<LaunchCards />);
 
     const main = screen.getByRole("main");
     expect(main.classList.contains("loading-page")).toBeTruthy();

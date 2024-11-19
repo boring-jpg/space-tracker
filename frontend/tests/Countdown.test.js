@@ -3,7 +3,7 @@
  */
 import {expect, it, jest, describe} from "@jest/globals";
 import {render, screen, act} from "@testing-library/react";
-import Countdown from "./Countdown.jsx";
+import Countdown from "../src/components/utility/Countdown.jsx";
 import React from "react";
 
 describe(Countdown, () => {

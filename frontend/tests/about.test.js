@@ -3,7 +3,7 @@
  */
 import {expect, it, describe, afterEach} from "@jest/globals";
 import {cleanup, render, screen} from "@testing-library/react";
-import About from "./about.jsx";
+import About from "../src/components/about.jsx";
 import React from "react";
 
 describe(About, () => {
