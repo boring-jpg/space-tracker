@@ -4,6 +4,7 @@ import session from 'express-session';
 import cors from 'cors'
 import { connectDB, sessionStore } from './config/db.js';
 import authRoutes from './routes/auth.route.js'
+import launchRoutes from './routes/launch.route.js'
 
 dotenv.config();
 
@@ -35,6 +36,7 @@ app.use(express.urlencoded({extended: true}));
 
 // endpoints
 app.use('/api/auth/', authRoutes);
+app.use('/api/launch/', launchRoutes)
 
 // error handling
 app.use((err, req, res, next) => {

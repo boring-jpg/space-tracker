@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { trusted } from "mongoose";
 import bcrypt from 'bcrypt';
 
 const userSchema = new mongoose.Schema({
@@ -14,7 +14,15 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    favLaunches: [
+        {
+            ID: {
+                type: mongoose.Schema.Types.ObjectId,
+                required: true
+            }
+        }
+    ]
 });
 
 // static methods

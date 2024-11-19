@@ -69,7 +69,7 @@ export const logout = async () => {
     const response = await fetch(`${backendURL}/auth/logout`, {
       method: 'POST',
       credentials: 'include',
-    })
+    });
 
     const data = await response.json()
     return data;
@@ -77,4 +77,24 @@ export const logout = async () => {
     console.error(e.message);
   }
 }
+
+export const addLaunchFav = async (launchID) => {
+  try{
+    const response = await fetch(`${backendURL}/auth/logout`, {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        launchID: launchID
+      })
+    });
+
+    const data = await response.json();
+    return data;
+  } catch (e){
+    console.error(e.message);
+  };
+};
   
