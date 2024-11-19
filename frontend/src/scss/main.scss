@@ -1,7 +1,8 @@
 @import 'config', 'loading', 'launchDetail', 'launchCard', 'about', 'login';
 
 body {
-    background: linear-gradient(135deg,$secondaryColor,$thirdaryColor ,$primaryColor) fixed
+    // background: linear-gradient(135deg,$secondaryColor,$thirdaryColor ,$primaryColor) fixed
+    background-color: $secondaryColor;
 }
 
 .nav {
@@ -53,6 +54,12 @@ body {
         width: 100vw;
     }
 
+    .desktop-nav{
+        display: flex;
+        flex-direction: row;
+        gap: .5rem;
+    }
+
     .hamburger {
         display: block;
         font-size: 6vw;
@@ -90,7 +97,7 @@ body {
                 text-decoration: none;
                 font-size: 4vw;
                 padding-right: .5rem;
-                padding: 2.2vh 1vw;
+                padding: 1vh 1vw;
                 font-size: 4vw;
                 font-family: cursive;
                 @include for_breakpoint(tablet){
@@ -98,12 +105,11 @@ body {
                 }
             }
             &.active {
-                background-color: #FFFFFF0F;
-                padding-bottom: 1.2vh;
+                background-color: #{$thirdaryColor}7F;
             }
      
             &:hover {
-                background-color: #{$thirdaryColor}9F;
+                background-color: #{$secondaryColor}9F;
                 backdrop-filter: blur(10px);
             }
         }
