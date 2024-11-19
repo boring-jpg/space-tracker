@@ -280,13 +280,13 @@
   display: flex;
   flex-direction: column;
   margin-top: 10vh;
+  gap: 2rem;
 }
 @media only screen and (min-width: 768px) {
   .launches .card-container {
     display: grid;
     margin-top: 0;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
   }
 }
 @media only screen and (min-width: 1200px) {
@@ -302,9 +302,10 @@
   text-align: center;
   text-decoration: none;
   width: 60vw;
-  background-color: #fff;
+  background-color: #0000337f;
+  padding-bottom: 0.3rem;
   backdrop-filter: blur(10px);
-  color: #000;
+  color: #fff;
   transition: all 0.3s ease-in-out;
 }
 @media only screen and (min-width: 768px) {
@@ -316,9 +317,7 @@
     min-height: 460px;
     max-width: 350px;
     align-items: center;
-    background-color: hsla(0, 3%, 23%, 0.3);
     color: #fff;
-    gap: 1rem;
   }
 }
 .launches .card-container .card:hover {
@@ -370,7 +369,7 @@
   }
 }
 .launches .card-container .card-title:visited {
-  color: #000;
+  color: #fff;
 }
 .launches .card-container .card-company {
   margin-top: 1rem;
@@ -392,7 +391,7 @@
 .launches .card-container .card-location a {
   font-size: 3.5vw;
   text-decoration: none;
-  color: #000;
+  color: #fff;
 }
 @media only screen and (min-width: 768px) {
   .launches .card-container .card-location a {
@@ -453,6 +452,7 @@
 .about-info {
   height: 50vh;
   max-height: 350px;
+  min-height: 350px;
   width: 90vw;
   max-width: 895px;
   display: flex;
@@ -517,7 +517,7 @@
   color: #fff;
 }
 
-.login {
+.auth {
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -526,24 +526,59 @@
   font-family: sans-serif;
   color: white;
 }
-.login-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-.login-form-fieldset {
+.auth-form {
   display: inline-flex;
   flex-direction: column;
-  padding: 2rem;
-  gap: 1rem;
 }
-.login-form-fieldset input {
-  float: right;
-  margin-left: 2rem;
+.auth-form .failed-auth {
+  color: rgb(235, 66, 66);
+  margin-bottom: 1rem;
+  font-weight: 900;
+}
+.auth-form label {
+  font-size: 2rem;
+}
+.auth-form input {
+  width: 50vw;
+  max-width: 600px;
+  height: 6vw;
+  max-height: 71px;
+  border: none;
+  outline: none;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.3rem;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+.auth-form button {
+  height: 6vw;
+  max-height: 71px;
+  background-color: #000033;
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 1rem;
+  border: none;
+  margin-bottom: 1rem;
+}
+.auth-form p {
+  text-align: center;
+  font-size: 3vw;
+  margin-bottom: 1rem;
+}
+.auth-form p a {
+  color: #000;
+}
+.auth-form p a:visited {
+  color: #000;
+}
+@media only screen and (min-width: 1200px) {
+  .auth-form p {
+    font-size: xx-large;
+  }
 }
 
 body {
-  background: linear-gradient(135deg, #326b9b, #333399, #000033) fixed;
+  background-color: #326b9b;
 }
 
 .nav {
@@ -597,6 +632,11 @@ body {
   height: 100vh;
   width: 100vw;
 }
+.nav .desktop-nav {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
 .nav .hamburger {
   display: block;
   font-size: 6vw;
@@ -636,7 +676,7 @@ body {
   text-decoration: none;
   font-size: 4vw;
   padding-right: 0.5rem;
-  padding: 2.2vh 1vw;
+  padding: 1vh 1vw;
   font-size: 4vw;
   font-family: cursive;
 }
@@ -646,10 +686,9 @@ body {
   }
 }
 .nav-list li.active {
-  background-color: rgba(255, 255, 255, 0.0588235294);
-  padding-bottom: 1.2vh;
+  background-color: #5e5ed77f;
 }
 .nav-list li:hover {
-  background-color: #3333999f;
+  background-color: #326b9b9f;
   backdrop-filter: blur(10px);
 } /*# sourceMappingURL=main.css.map */

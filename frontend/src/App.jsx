@@ -32,7 +32,7 @@ function App() {
 
   return (
     <>
-      <Navbar loggedIn={isLoggedin} />
+      <Navbar loggedIn={isLoggedin} setIsLoggedIn={setIsLoggedIn}/>
       <Routes>
         <Route path="/" element={<LaunchCards />} />
         <Route path="/launch/:id" element={<LaunchDetails />} />
