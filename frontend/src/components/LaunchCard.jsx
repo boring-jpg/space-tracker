@@ -6,8 +6,9 @@ import Loading from "./utility/loading.jsx";
 import {changeTitle} from "./utility/changeTitle.js";
 import Pagination from "./utility/Pagination.jsx";
 import React from "react";
+import { FavoriteButton } from "./utility/favoriteBtn.jsx";
 
-function LaunchCards() {
+function LaunchCards(isLoggedin) {
   const [launchData, setLaunchData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
@@ -48,23 +49,28 @@ function LaunchCards() {
         />
         <section className="card-container">
           {currentPosts.map((launch) => (
-            <Link to={`/launch/${launch.id}/`} key={launch.id} className="card">
-              <img
-                src={launch.image?.thumbnail_url}
-                alt={launch.name}
-                className="card-image"
-              ></img>
-              <h2 className="card-title">{launch.rocket.configuration.full_name}</h2>
-              <p className="card-company card-text">
-                {launch.launch_service_provider.name}
-              </p>
+            <div className="card" key={launch.id}>
+                            <h2 className="card-title">{launch.rocket.configuration.full_name}</h2>
+              <Link to={`/launch/${launch.id}/`} >
+                <img
+                  src={launch.image?.thumbnail_url}
+                  alt={launch.name}
+                  className="card-image"
+                ></img>
+              </Link>
+              <FavoriteButton launchID={launch.id} isLoggedin={isLoggedin}/>
               <div className="card-text">
-                <Countdown net={launch.net} />
+                <p className="card-company card-text">
+                  {launch.launch_service_provider.name}
+                </p>
+                  <Countdown net={launch.net} />
+                
+                <p className="card-location">
+                  <Link to={launch.pad.wiki_url}>{launch.pad.location.name}</Link>
+                </p>
               </div>
-              <p className="card-location">
-                <Link to={launch.pad.wiki_url}>{launch.pad.location.name}</Link>
-              </p>
-            </Link>
+              
+            </div>
           ))}
         </section>
         <Pagination

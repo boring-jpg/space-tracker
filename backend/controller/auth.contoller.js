@@ -70,7 +70,8 @@ export const registerUser = async (req, res) => {
         const newUser = await User.create({
             name: name,
             email: email,
-            password: password
+            password: password,
+            favorites: []
         });
 
         return res.status(200).json({

@@ -12,11 +12,13 @@ export const addFavorite = (req, res) => {
                 success: false,
                 error: "User not Found"
             });
-        }
+        };
 
-        user.favorites.push({
-            launchID: launchID
-        });
+        if(!Array.isArray(user.favLaunches)){
+            user.favLaunches = [];
+        };
+
+        user.favLaunches.push(JSON.stringify({launchID: launchID}));
 
         res.status(200).json({
             success: true,

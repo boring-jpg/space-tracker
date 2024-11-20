@@ -34,7 +34,7 @@ function App() {
     <>
       <Navbar loggedIn={isLoggedin} setIsLoggedIn={setIsLoggedIn}/>
       <Routes>
-        <Route path="/" element={<LaunchCards />} />
+        <Route path="/" element={<LaunchCards isLoggedin={isLoggedin} />} />
         <Route path="/launch/:id" element={<LaunchDetails />} />
         <Route path="/about" element={<About />} />
         <Route
