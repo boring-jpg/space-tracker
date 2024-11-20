@@ -1,8 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Source Code Pro", monospace;
 }
 
 @keyframes rotate {
@@ -22,8 +24,7 @@
   }
 }
 @keyframes spin {
-  0%,
-  100% {
+  0%, 100% {
     box-shadow: 0.2em 0px 0 0px currentcolor;
   }
   12% {
@@ -66,8 +67,7 @@
   color: #fff;
   position: fixed;
 }
-.loading:before,
-.loading:after {
+.loading:before, .loading:after {
   content: "";
   display: block;
   position: absolute;
@@ -80,7 +80,7 @@
   animation: 1s spin linear infinite;
 }
 .loading:after {
-  color: #ff3d00;
+  color: #FF3D00;
   transform: rotateY(70deg);
   animation-delay: 0.4s;
 }
@@ -120,7 +120,7 @@
 .launch-detail-info-text {
   display: flex;
   flex-direction: column;
-  color: #fff;
+  color: #FFF;
   text-align: center;
   align-items: center;
   margin: 2rem;
@@ -138,7 +138,7 @@
 .launch-detail-info-text p.card-countdown {
   font-size: 7vw;
   font-weight: bolder;
-  color: #fff;
+  color: #FFF;
 }
 @media only screen and (min-width: 768px) {
   .launch-detail-info-text p.card-countdown {
@@ -173,7 +173,7 @@
 .launch-detail-info-text-wiki a {
   font-size: 5.5vw;
   text-decoration: none;
-  color: #fff;
+  color: #FFF;
 }
 @media only screen and (min-width: 768px) {
   .launch-detail-info-text-wiki a {
@@ -212,7 +212,7 @@
 .launch-detail-mission h2 {
   text-align: center;
   font-size: 8vw;
-  color: #fff;
+  color: #FFF;
 }
 @media only screen and (min-width: 768px) {
   .launch-detail-mission h2 {
@@ -224,7 +224,7 @@
   text-align: center;
   font-size: 4vw;
   line-height: 2;
-  color: #fff;
+  color: #FFF;
 }
 @media only screen and (min-width: 768px) {
   .launch-detail-mission p {
@@ -268,13 +268,14 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Source Code Pro", monospace;
 }
 
 .launches {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: "Source Code Pro", monospace;
 }
 .launches .card-container {
   display: flex;
@@ -305,7 +306,7 @@
   background-color: #0000337f;
   padding-bottom: 0.3rem;
   backdrop-filter: blur(10px);
-  color: #fff;
+  color: #FFF;
   transition: all 0.3s ease-in-out;
 }
 @media only screen and (min-width: 768px) {
@@ -317,7 +318,7 @@
     min-height: 460px;
     max-width: 350px;
     align-items: center;
-    color: #fff;
+    color: #FFF;
   }
 }
 .launches .card-container .card:hover {
@@ -326,13 +327,11 @@
 .launches .card-container .card-image {
   width: 60vw;
   height: auto;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
   margin-bottom: 10px;
 }
 @media only screen and (min-width: 768px) {
   .launches .card-container .card-image {
-    max-width: 50%;
+    max-width: 70%;
     margin: 1rem auto;
     padding: 0.5rem;
     background-color: black;
@@ -341,6 +340,10 @@
 }
 .launches .card-container .card-text {
   font-size: 3.5vw;
+  font-family: "Source Code Pro", monospace;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
 }
 @media only screen and (min-width: 768px) {
   .launches .card-container .card-text {
@@ -350,29 +353,39 @@
 .launches .card-container .card-text .card-countdown {
   font-size: 5vw;
   font-weight: bolder;
+  font-family: "Source Code Pro", monospace;
   width: 100%;
   height: auto;
-  margin: 1rem auto;
+  margin: 0.5rem auto;
 }
 @media only screen and (min-width: 768px) {
   .launches .card-container .card-text .card-countdown {
-    font-size: xx-large;
+    font-size: x-large;
   }
 }
 .launches .card-container .card-title {
+  padding-top: 1rem;
   font-size: 6vw;
   text-decoration: none;
+  font-family: "Source Code Pro", monospace;
 }
 @media only screen and (min-width: 768px) {
   .launches .card-container .card-title {
-    font-size: xx-large;
+    font-size: x-large;
   }
 }
 .launches .card-container .card-title:visited {
-  color: #fff;
+  color: #FFF;
+}
+.launches .card-container .card-fav-btn {
+  cursor: pointer;
+}
+.launches .card-container .card-fav-btn:hover {
+  transform: scale(2.5);
 }
 .launches .card-container .card-company {
   margin-top: 1rem;
+  font-family: "Source Code Pro", monospace;
 }
 @media only screen and (min-width: 768px) {
   .launches .card-container .card-company {
@@ -382,6 +395,7 @@
 }
 .launches .card-container .card-location {
   margin: 10px;
+  font-family: "Source Code Pro", monospace;
 }
 @media only screen and (min-width: 768px) {
   .launches .card-container .card-location {
@@ -391,12 +405,13 @@
 .launches .card-container .card-location a {
   font-size: 3.5vw;
   text-decoration: none;
-  color: #fff;
+  color: #FFF;
+  font-family: "Source Code Pro", monospace;
 }
 @media only screen and (min-width: 768px) {
   .launches .card-container .card-location a {
-    font-size: x-large;
-    color: #fff;
+    font-size: large;
+    color: #FFF;
   }
 }
 .launches .card-container .card a {
@@ -409,6 +424,7 @@
   width: 80%;
   gap: 1rem;
   overflow: scroll;
+  font-family: "Source Code Pro", monospace;
 }
 @media only screen and (min-width: 768px) {
   .launches .pagination {
@@ -431,14 +447,14 @@
   background: #00003360;
   backdrop-filter: blur(10px);
   border: 1px solid #000;
-  color: #fff;
+  color: #FFF;
   border-radius: 12px;
 }
 .launches .pagination button:hover {
   transform: scale(1.1);
 }
 .launches .pagination button.active {
-  background: #326b9b60;
+  background: #326B9B60;
 }
 
 .about {
@@ -460,29 +476,29 @@
   justify-content: center;
   align-items: center;
   border-radius: 20px;
-  background-color: #0000335f;
+  background-color: #0000335F;
   backdrop-filter: blur(10px);
 }
 .about-info-name {
-  font-size: 10vw;
-  color: #fff;
+  font-size: 8vw;
+  color: #FFF;
 }
 @media only screen and (min-width: 992px) {
   .about-info-name {
-    font-size: 6rem;
+    font-size: 5rem;
   }
 }
 .about-info-p {
-  font-size: 4vw;
-  color: #fff;
+  font-size: 3vw;
+  color: #FFF;
 }
 @media only screen and (min-width: 992px) {
   .about-info-p {
-    font-size: 3rem;
+    font-size: 1.9rem;
   }
 }
 .about-info .social-links {
-  margin-top: 3rem;
+  margin-top: 5rem;
   height: auto;
   width: 100vw;
   display: flex;
@@ -514,7 +530,7 @@
 }
 .about-info .social-links a {
   text-decoration: none;
-  color: #fff;
+  color: #FFF;
 }
 
 .auth {
@@ -554,7 +570,7 @@
   height: 6vw;
   max-height: 71px;
   background-color: #000033;
-  color: #fff;
+  color: #FFF;
   font-family: sans-serif;
   font-size: 1rem;
   border: none;
@@ -578,15 +594,16 @@
 }
 
 body {
-  background-color: #326b9b;
+  background-color: #326B9B;
 }
 
 .nav {
-  background: #0000337f;
+  background: #0000337F;
   backdrop-filter: blur(9px);
   color: #fff;
   display: flex;
   justify-content: space-between;
+  font-family: "Source Code Pro", monospace;
   position: fixed;
   width: 100vw;
   max-height: 80px;
@@ -604,7 +621,8 @@ body {
   color: #fff;
   font-size: 6vw;
   padding: 0.5rem;
-  font-family: cursive;
+  font-family: "Source Code Pro", monospace;
+  font-weight: 900;
   z-index: -2;
 }
 @media only screen and (min-width: 768px) {
@@ -618,7 +636,7 @@ body {
   top: 0;
   right: 0;
   margin: auto;
-  background: #326b9b6f;
+  background: #326B9B6F;
   backdrop-filter: blur(10px);
   z-index: -1;
 }
@@ -644,7 +662,7 @@ body {
   border: none;
   background: #00003300;
   backdrop-filter: blur(10px);
-  color: #fff;
+  color: #FFF;
 }
 .nav .hamburger:hover {
   cursor: pointer;
@@ -678,17 +696,17 @@ body {
   padding-right: 0.5rem;
   padding: 1vh 1vw;
   font-size: 4vw;
-  font-family: cursive;
+  font-family: "Source Code Pro", monospace;
 }
 @media only screen and (min-width: 768px) {
   .nav-list li a {
-    font-size: 40px;
+    font-size: 30px;
   }
 }
 .nav-list li.active {
-  background-color: #5e5ed77f;
+  background-color: #5e5ed77F;
 }
 .nav-list li:hover {
-  background-color: #326b9b9f;
+  background-color: #326B9B9F;
   backdrop-filter: blur(10px);
-} /*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */

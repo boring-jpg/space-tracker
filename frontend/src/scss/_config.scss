@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 $primaryColor: #000033;
 $secondaryColor: #326B9B;
 $thirdaryColor: #5e5ed7;
@@ -31,7 +31,7 @@ $media_queries : (
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Source Code Pro", monospace;
 }
 
 

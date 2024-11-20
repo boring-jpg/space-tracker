@@ -11,6 +11,8 @@ body {
     color: #fff;
     display: flex;
     justify-content: space-between;
+    font-family: "Source Code Pro", monospace;
+
     position: fixed;
     width: 100vw;
     max-height: 80px;
@@ -27,7 +29,8 @@ body {
         color: #fff;
         font-size: 6vw;
         padding:.5rem;
-        font-family: cursive;
+        font-family: "Source Code Pro", monospace;
+        font-weight: 900;
         z-index: -2;
         @include for_breakpoint(tablet){
             font-size: 40px;
@@ -99,9 +102,9 @@ body {
                 padding-right: .5rem;
                 padding: 1vh 1vw;
                 font-size: 4vw;
-                font-family: cursive;
+                font-family: "Source Code Pro", monospace;
                 @include for_breakpoint(tablet){
-                    font-size: 40px;
+                    font-size: 30px;
                 }
             }
             &.active {
