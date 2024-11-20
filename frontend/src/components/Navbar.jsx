@@ -29,7 +29,7 @@ function Navbar({loggedIn, setIsLoggedIn}) {
   const handleLogout = async() => {
     try{
       const response = await logout();
-      if (response.success === true){
+      if (await response.success === true){
         setIsLoggedIn(false);
         navigate(0);
       }
@@ -78,7 +78,7 @@ function Navbar({loggedIn, setIsLoggedIn}) {
           <CustomLink href="/about">About</CustomLink>
           {loggedIn ? (
             <li>
-              <a href="" onClick={
+              <a onClick={
                 () => {
                   handleLogout();
                 }

@@ -68,11 +68,15 @@ export const logout = async () => {
   try{
     const response = await fetch(`${backendURL}/auth/logout`, {
       method: 'POST',
-      credentials: 'include',
+      credentials: 'include'
     });
+    if(!response.ok){
+      console.error("something went wrong")
+    }
 
     const data = await response.json()
     return data;
+    
   } catch(e){
     console.error(e.message);
   }
@@ -80,7 +84,7 @@ export const logout = async () => {
 
 export const addLaunchFav = async (launchID) => {
   try{
-    const response = await fetch(`${backendURL}/auth/logout`, {
+    const response = await fetch(`${backendURL}/launch/addFavorite`, {
       method: 'POST',
       credentials: 'include',
       headers: {
