@@ -593,6 +593,13 @@
   }
 }
 
+.no-favorites {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 body {
   background-color: #326B9B;
 }

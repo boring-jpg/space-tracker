@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { addLaunchFav, removeLaunchFav } from "../../api/backend_calls";
 import { useNavigate } from "react-router-dom";
 
-export const FavoriteButton = ({launchID}) => {
+export const FavoriteButton = ({launchID, favoriteList}) => {
     const [isClicked, setIsClicked] = useState(false);
     const navigate = useNavigate();
 
@@ -14,9 +14,9 @@ export const FavoriteButton = ({launchID}) => {
             if(response.error){
                 return navigate('/login');
             }
-            return setIsClicked(false);
-
-            
+            setIsClicked(false);
+            return navigate(0);
+             
         } catch (err){
             console.error(err.message);
         };
@@ -25,28 +25,29 @@ export const FavoriteButton = ({launchID}) => {
     const handleFav = async () => {
         try{
             const response = await addLaunchFav(launchID /* send is clicked?*/);
-            console.log(response);
             if(response.error){
                 return navigate('/login');
             }
-            return setIsClicked(true);
-
+            setIsClicked(true);
             
         } catch (err){
             console.error(err.message);
         };
     };
 
-    
-    /* 
-    TODO: Figure out how to keep the clicked state persistant even after a reload.
-    
-    Store state in cookie / local storage?
-    make API path and store in mongo?
-    */
+    useEffect(()=>{
+        
+        favoriteList?.forEach(launch => {
+            if(launchID === launch.id){
+                setIsClicked(true);
+            };
+        });
+    },[])
+
 
 
     return (
+        
         isClicked ? 
         <a className="card-fav-btn" onClick={() => handleUnFav()}>&#9829;</a> :
         <a className="card-fav-btn" onClick={() => handleFav()}>&#9825;</a>

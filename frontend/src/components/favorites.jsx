@@ -1,7 +1,6 @@
 import {useState, useEffect} from "react";
-import {Link, useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import Countdown from "./utility/Countdown.jsx";
-import {getLaunchData} from "../api/lldev_calls.js";
 import Loading from "./utility/loading.jsx";
 import {changeTitle} from "./utility/changeTitle.js";
 import Pagination from "./utility/Pagination.jsx";
@@ -10,7 +9,7 @@ import React from "react";
 import { FavoriteButton } from "./utility/favoriteBtn.jsx";
 import { getUsersFavLaunch} from "../api/backend_calls.js";
 
-function LaunchCards() {
+function Favorites() {
   const [launchData, setLaunchData] = useState([]);
   const [favoriteList, setFavoriteList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -31,26 +30,35 @@ function LaunchCards() {
       try {
         setIsLoading(true);
         const favoriteList = await getFavorites();
-        console.log(favoriteList);
         setPostPerPage(6);
         changeTitle("Space-Tracker" + " | " + "Loading...");
-        const data = await getLaunchData("upcoming");
         setFavoriteList(favoriteList?.results || favoriteList);
-        setLaunchData(data);
-        changeTitle("Space-Tracker");
+        setLaunchData(favoriteList?.results || favoriteList);
+        changeTitle("Space-Tracker | Favorites");
       } catch (err) {
         console.error(err);
-        
-        
+        if(err === "No ID's were provided."){
+            setNoFavorites(true);
+        };
       } finally {
         setIsLoading(false);
       }
     };
-    setLaunchData([]);
     fetchLaunchData();
   }, []);
 
   if (isLoading) return <Loading />;
+
+
+  console.log(launchData)
+ 
+  if(launchData.length === 0) {
+    return (
+      <main className="no-favorites">
+        <h1 >No Favorites Found</h1>
+      </main>
+  );
+  }
 
   const lastPostIndex = currentPage * postPerPage;
   const firstPostIndex = lastPostIndex - postPerPage;
@@ -59,12 +67,15 @@ function LaunchCards() {
   return (
     <>
       <main className="launches">
-        <Pagination
-          totalPosts={launchData.length}
-          postPerPage={postPerPage}
-          setCurrentPage={setCurrentPage}
-          currentPage={currentPage}
-        />
+        {launchData.length > postPerPage && (
+          <Pagination
+            totalPosts={launchData.length}
+            postPerPage={postPerPage}
+            setCurrentPage={setCurrentPage}
+            currentPage={currentPage}
+          />
+        )}
+
 
         <section className="card-container">
           {currentPosts.map((launch) => (
@@ -92,15 +103,18 @@ function LaunchCards() {
             </div>
           ))}
         </section>
-        <Pagination
-          totalPosts={launchData.length}
-          postPerPage={postPerPage}
-          setCurrentPage={setCurrentPage}
-          currentPage={currentPage}
-        />
+        {launchData.length > postPerPage && (
+          <Pagination
+            totalPosts={launchData.length}
+            postPerPage={postPerPage}
+            setCurrentPage={setCurrentPage}
+            currentPage={currentPage}
+          />
+        )}
+
       </main>
     </>
   );
 }
 
-export default LaunchCards;
+export default Favorites;

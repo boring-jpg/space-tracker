@@ -19,8 +19,11 @@ export const getLaunchData = async (input) => {
 
 export const getFavLaunch = async (...items) => {
 
-  if(items.length === 0){
-    throw new Error("No ID's were provided.")
+  console.log(items)
+  if(items[0].length === 0){
+    const data = {};
+    data.results = [];
+    return data;
   };
 
   try{
