@@ -54,7 +54,7 @@ describe(LaunchCards, () => {
     expect(main.classList.contains("loading-page")).toBeTruthy();
   });
 
-  it("should call API for launch data, then render launcard page.", async () => {
+  it("should call API for launch data, then render launchcard page.", async () => {
     await act(async () => {
       render(
         <MemoryRouter>
