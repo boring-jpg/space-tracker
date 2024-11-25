@@ -1,14 +1,15 @@
 import {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
 import Countdown from "./utility/Countdown.jsx";
-import getLaunchData from "../api/lldev_calls.js";
+import {getLaunchData} from "../api/lldev_calls.js";
 import Loading from "./utility/loading.jsx";
 import {changeTitle} from "./utility/changeTitle.js";
 import Pagination from "./utility/Pagination.jsx";
 import React from "react";
 import { FavoriteButton } from "./utility/favoriteBtn.jsx";
+import { getUsersFavLaunch} from "../api/backend_calls.js";
 
-function LaunchCards(isLoggedin) {
+function LaunchCards({favorites}) {
   const [launchData, setLaunchData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
@@ -18,21 +19,34 @@ function LaunchCards(isLoggedin) {
   useEffect(() => {
     const fetchLaunchData = async () => {
       try {
+        setIsLoading(true);
         setPostPerPage(6);
         changeTitle("Space-Tracker" + " | " + "Loading...");
-        const data = await getLaunchData("upcoming");
-        setLaunchData(data);
+        if(favorites===true){
+          const data = await getUsersFavLaunch();
+
+          setLaunchData(data.results);
+        }else{
+          const data = await getLaunchData("upcoming");
+          setLaunchData(data);
+        }
+        
         changeTitle("Space-Tracker");
       } catch (err) {
         console.error(err);
+        return <h1>Nothig ever works</h1>;
+        
       } finally {
         setIsLoading(false);
       }
     };
     fetchLaunchData();
-  }, []);
+  }, [favorites]);
 
   if (isLoading) return <Loading />;
+  console.log(launchData);
+
+  
 
   const lastPostIndex = currentPage * postPerPage;
   const firstPostIndex = lastPostIndex - postPerPage;
@@ -58,7 +72,7 @@ function LaunchCards(isLoggedin) {
                   className="card-image"
                 ></img>
               </Link>
-              <FavoriteButton launchID={launch.id} isLoggedin={isLoggedin}/>
+              <FavoriteButton launchID={launch.id}/>
               <div className="card-text">
                 <p className="card-company card-text">
                   {launch.launch_service_provider.name}

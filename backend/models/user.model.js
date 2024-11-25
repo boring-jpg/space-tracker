@@ -17,8 +17,8 @@ const userSchema = new mongoose.Schema({
     },
     favLaunches: [
         {
-            ID: {
-                type: mongoose.Schema.Types.ObjectId,
+            launchID: {
+                type: String,
                 required: true
             }
         }

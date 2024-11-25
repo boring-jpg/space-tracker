@@ -1,28 +1,30 @@
 import React from "react";
 import { useState } from "react";
-import { addLaunchFav } from "../../api/backend_calls";
+import { addLaunchFav, removeLaunchFav } from "../../api/backend_calls";
 import { useNavigate } from "react-router-dom";
 
-export const FavoriteButton = ({launchID}, isLoggedin) => {
+export const FavoriteButton = ({launchID}) => {
     const [isClicked, setIsClicked] = useState(false);
     const navigate = useNavigate();
 
-    const handleUnFav = () => {
+    const handleUnFav = async () => {
+        try{
+            const response = await removeLaunchFav(launchID /* send is clicked?*/);
+            console.log(response);
+            if(response.error){
+                return navigate('/login');
+            }
+            return setIsClicked(false);
 
-        
-        // try{
-        //     const response = addLaunchFav(launch.id);
-        //     console.log(response);
-        //     if(response.error === "Unauthorized: Please log in."){
-        //         nav('/login');
-        //     };
-        // } catch (err){
-        //     console.error(err.message);
-        // };
+            
+        } catch (err){
+            console.error(err.message);
+        };
     };
+    
     const handleFav = async () => {
         try{
-            const response = await addLaunchFav(launchID);
+            const response = await addLaunchFav(launchID /* send is clicked?*/);
             console.log(response);
             if(response.error){
                 return navigate('/login');
@@ -34,7 +36,14 @@ export const FavoriteButton = ({launchID}, isLoggedin) => {
             console.error(err.message);
         };
     };
+
     
+    /* 
+    TODO: Figure out how to keep the clicked state persistant even after a reload.
+    
+    Store state in cookie / local storage?
+    make API path and store in mongo?
+    */
 
 
     return (
@@ -43,4 +52,4 @@ export const FavoriteButton = ({launchID}, isLoggedin) => {
         <a className="card-fav-btn" onClick={() => handleFav()}>&#9825;</a>
         
     );
-}
+};

@@ -1,11 +1,12 @@
-const getLaunchData = async (input) => {
-  const lldevAPI = `https://lldev.thespacedevs.com/2.3.0/launches/${input}/?limit=41`;
+const lldevLaunches = "https://lldev.thespacedevs.com/2.3.0/launches"
+
+export const getLaunchData = async (input) => {
+  const lldevAPI = `${lldevLaunches}/${input}/?limit=41`;
   try {
     const call = await fetch(lldevAPI);
     if (!call.ok) {
-      throw new Error("Error");
-    }
-
+      throw new Error(`error making request to ${lldevAPI}`);
+    };
     const result = await call.json();
 
     let results;
@@ -16,4 +17,25 @@ const getLaunchData = async (input) => {
   }
 };
 
-export default getLaunchData;
+export const getFavLaunch = async (...items) => {
+
+  if(items.length === 0){
+    throw new Error("No ID's were provided.")
+  };
+
+  try{
+    const lldevAPI = `${lldevLaunches}/?id=${items.join(',')}`;
+    const response = await fetch(lldevAPI);
+
+    if(!response.ok){
+      throw new Error(`Error making request to ${lldevAPI}`)
+    };
+
+    const data = await response.json();
+    return data;
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+

@@ -1,3 +1,5 @@
+import { getFavLaunch } from "./lldev_calls.js";
+
 const backendURL = "http://localhost:3001/api";
 
 export const isAuth = async () => {
@@ -101,4 +103,58 @@ export const addLaunchFav = async (launchID) => {
     console.error(e.message);
   };
 };
-  
+
+export const removeLaunchFav = async (launchID) => {
+  try{
+    const response = await fetch(`${backendURL}/launch/removeFavorite`, {
+      method: 'DELETE',
+      credentials: 'include',
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        launchID: launchID
+      })
+    });
+
+    const data = await response.json();
+    return data;
+  } catch (e){
+    console.error(e.message);
+  };
+};
+
+export const getUsersFavLaunch = async () => {
+  try {
+    const response = await fetch(`${backendURL}/launch/favorites`, {
+      method: 'GET',
+      credentials: 'include',
+    });
+
+    const backendData = await response.json();
+
+    if(backendData.error){
+      throw new Error(`${backendData.error}`)
+    }
+
+    console.log(backendData)
+
+    let favLaunches = []
+    backendData.data.forEach(launch => {
+      if(launch.launchID){
+        favLaunches.push(launch.launchID);
+      };
+    });
+
+    if (favLaunches === undefined){
+      throw new Error("No favorites found.")
+    };
+
+    const apiCall = await getFavLaunch(favLaunches);
+
+    return apiCall;
+
+  } catch(e){
+    console.error(e.message);
+  }
+};
