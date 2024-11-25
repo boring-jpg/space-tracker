@@ -4,13 +4,13 @@
 import {expect, it, describe, jest} from "@jest/globals";
 import {act, render, screen, waitFor} from "@testing-library/react";
 import {MemoryRouter} from "react-router-dom";
-import getLaunchData from "../src/api/lldev_calls.js";
+import {getLaunchData} from "../src/api/lldev_calls.js";
 import LaunchDetails from "../src/components/LaunchDetails.jsx";
 import React from "react";
 
 jest.mock("../src/api/lldev_calls", () => ({
   __esModule: true,
-  default: jest.fn(),
+  getLaunchData: jest.fn(),
 }));
 
 const mockLaunchData = {

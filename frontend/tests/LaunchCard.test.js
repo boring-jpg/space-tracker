@@ -4,13 +4,13 @@
 import {describe, expect, it, jest, beforeEach} from "@jest/globals";
 import {act, render, screen, waitFor} from "@testing-library/react";
 import {MemoryRouter} from "react-router-dom";
-import getLaunchData from "../src/api/lldev_calls.js";
+import {getLaunchData} from "../src/api/lldev_calls.js";
 import LaunchCards from "../src/components/LaunchCard.jsx";
 import React from "react";
 
 jest.mock("../src/api/lldev_calls", () => ({
   __esModule: true,
-  default: jest.fn(),
+  getLaunchData: jest.fn(),
 }));
 
 const mockLaunchData = [
@@ -48,7 +48,7 @@ describe(LaunchCards, () => {
   it("should display loading on mount", async () => {
     getLaunchData.mockResolvedValueOnce([]);
 
-    render(<LaunchCards />);
+    render(<LaunchCards favorites={false}/>);
 
     const main = screen.getByRole("main");
     expect(main.classList.contains("loading-page")).toBeTruthy();
@@ -58,7 +58,7 @@ describe(LaunchCards, () => {
     await act(async () => {
       render(
         <MemoryRouter>
-          <LaunchCards />
+          <LaunchCards favorites={false}/>
         </MemoryRouter>
       );
     });
@@ -74,7 +74,7 @@ describe(LaunchCards, () => {
     await act(async () => {
       render(
         <MemoryRouter>
-          <LaunchCards />
+          <LaunchCards favorites={false}/>
         </MemoryRouter>
       );
     });
