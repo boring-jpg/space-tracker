@@ -1,6 +1,5 @@
 import { getFavLaunch } from "./lldev_calls.js";
-import dotenv from 'dotenv'
-dotenv.config();
+
 
 const backendURL = process.env.DOMAIN;
 
