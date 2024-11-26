@@ -16,7 +16,6 @@ describe(Countdown, () => {
 
     const text = screen.getByText(/T-/).textContent;
     expect(text).toBe("T-00:00:59" || "T-00:00:58");
-    // Takes ~ 1 second to mount
   });
 
   it("should update every second", () => {

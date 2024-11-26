@@ -58,7 +58,7 @@ describe(LaunchCards, () => {
     await act(async () => {
       render(
         <MemoryRouter>
-          <LaunchCards favorites={false}/>
+          <LaunchCards />
         </MemoryRouter>
       );
     });
