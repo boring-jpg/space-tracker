@@ -22,4 +22,4 @@ Space-Tracker is a web app that provides real-time data on upcoming space launch
 
 ## Technologies Used
 
-React, SCSS, JavaScript (ES6+), TheSpaceDevs Launch API.
+MongoDB, Express, React, Node, SCSS, JavaScript (ES6+), TheSpaceDevs Launch API.
