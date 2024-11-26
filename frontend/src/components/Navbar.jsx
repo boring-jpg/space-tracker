@@ -78,7 +78,7 @@ function Navbar({loggedIn, setIsLoggedIn}) {
           <CustomLink href="/about">About</CustomLink>
           {loggedIn ? (
             <li>
-              <a onClick={
+              <a className="logout" onClick={
                 () => {
                   handleLogout();
                 }

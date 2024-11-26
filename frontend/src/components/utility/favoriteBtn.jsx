@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { addLaunchFav, removeLaunchFav } from "../../api/backend_calls";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"
+import {array, string} from "prop-types";
+
 
 export const FavoriteButton = ({launchID, favoriteList}) => {
     const [isClicked, setIsClicked] = useState(false);
@@ -9,7 +11,7 @@ export const FavoriteButton = ({launchID, favoriteList}) => {
 
     const handleUnFav = async () => {
         try{
-            const response = await removeLaunchFav(launchID /* send is clicked?*/);
+            const response = await removeLaunchFav(launchID);
             console.log(response);
             if(response.error){
                 return navigate('/login');
@@ -54,3 +56,8 @@ export const FavoriteButton = ({launchID, favoriteList}) => {
         
     );
 };
+
+FavoriteButton.propTypes = {
+    launchID: string,
+    favoriteList: array,
+  };

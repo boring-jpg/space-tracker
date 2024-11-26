@@ -1,20 +1,20 @@
 import {useState, useEffect} from "react";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import Countdown from "./utility/Countdown.jsx";
 import Loading from "./utility/loading.jsx";
 import {changeTitle} from "./utility/changeTitle.js";
 import Pagination from "./utility/Pagination.jsx";
-
 import React from "react";
 import { FavoriteButton } from "./utility/favoriteBtn.jsx";
 import { getUsersFavLaunch} from "../api/backend_calls.js";
 
-function Favorites() {
+function Favorites(isLoggedin) {
   const [launchData, setLaunchData] = useState([]);
   const [favoriteList, setFavoriteList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [postPerPage, setPostPerPage] = useState(6);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getFavorites = async () => {
@@ -29,6 +29,7 @@ function Favorites() {
     const fetchLaunchData = async () => {
       try {
         setIsLoading(true);
+        isLoggedin ? navigate('/login') : "";
         const favoriteList = await getFavorites();
         setPostPerPage(6);
         changeTitle("Space-Tracker" + " | " + "Loading...");
@@ -37,9 +38,6 @@ function Favorites() {
         changeTitle("Space-Tracker | Favorites");
       } catch (err) {
         console.error(err);
-        if(err === "No ID's were provided."){
-            setNoFavorites(true);
-        };
       } finally {
         setIsLoading(false);
       }
