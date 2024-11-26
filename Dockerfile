@@ -1,4 +1,4 @@
-FROM node:18 AS frontend
+FROM node:20 AS frontend
 
 WORKDIR /frontend
 
@@ -12,7 +12,7 @@ RUN npm run build
 
 ## BACKEND ##
 
-FROM node:18 AS backend
+FROM node:20 AS backend
 
 WORKDIR /backend
 
@@ -24,6 +24,10 @@ ENV MONGO=${MONGO}
 
 ARG SESSION
 ENV SESSION=${SESSION}
+
+COPY ./frontend/package.json ./frontend/package-lock.json ./
+
+RUN npm i
 
 COPY ./backend/ ./
 
