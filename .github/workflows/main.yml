@@ -14,9 +14,11 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 18.19.1
-      - run: cd /frontend
-      - run: npm ci
-      - run: npm run test
+      - name: Run tests
+        working-directory: ./frontend
+        run: |
+          npm ci
+          npm run test
 
   build_and_publish_docker_image:
     runs-on: ubuntu-latest
