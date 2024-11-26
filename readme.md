@@ -14,12 +14,18 @@ Space-Tracker is a web app that provides real-time data on upcoming space launch
 
 **Real-Time Launch Data:** Dynamic fetching of upcoming space launches, including countdowns and mission details.
 
-**Navigation:** Easy-to-use navigation bar for switching between the homepage, launch details, and an About page.
-
-**Launch Countdown:** Displays a live countdown to the next space launch, keeping users updated on real-time data.
-
 **API Integration:** Real-time data is fetched from a public space launch API and rendered dynamically on the page.
+
+**Full CI/CD** This project is tested with jest, contanerized in docker, and deployed automatically to render.com.  THis makes extensive use of Github Actions, Docker Hub, and Dockerfiles fully automate the testing and deployment of this application.
 
 ## Technologies Used
 
-MongoDB, Express, React, Node, SCSS, JavaScript (ES6+), TheSpaceDevs Launch API.
+MongoDB, Express, React, Node, SCSS, JavaScript (ES6+), GIthub Actions, Docker, and TheSpaceDevs Launch API.
+
+## Deploy App
+
+```bash
+sudo docker pull boringjpg/space-tracker
+
+sudo docker run -e MONGO="YOUR_MONGODB_URI" -e SESSION="SECRET_TO_HASH_SESSIONS" -d boringjpg/space-tracker
+```

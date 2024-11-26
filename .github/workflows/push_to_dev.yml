@@ -1,0 +1,19 @@
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 18.19.1
+      - name: Run tests
+        working-directory: ./frontend
+        run: |
+          npm ci
+          npm run test
+  
