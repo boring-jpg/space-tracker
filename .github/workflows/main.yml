@@ -27,7 +27,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Build and push the image
         run: |
-          docker login --username boringjpg --password ${{ secrets.DOCKER_HUB_TOKEN }} ghcr.io
+          docker login --username boringjpg --password ${{ secrets.DOCKER_HUB_TOKEN }}
           docker build . --tag boringjpg/space-tracker:latest
           docker push boring-jpg/space-tracker:latest
   
