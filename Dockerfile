@@ -25,7 +25,7 @@ ENV MONGO=${MONGO}
 ARG SESSION
 ENV SESSION=${SESSION}
 
-COPY ./frontend/package.json ./frontend/package-lock.json ./
+COPY ./backend/package.json ./backend/package-lock.json ./
 
 RUN npm i
 
