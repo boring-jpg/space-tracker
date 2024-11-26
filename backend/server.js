@@ -62,7 +62,7 @@ app.use((err, req, res, next) => {
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static('public'));
     app.get('*', (req, res) =>{
-        res.sendFile('public/dist/index.html', {root: __dirname});
+        res.sendFile('public/index.html', {root: __dirname});
     });
 }
 
