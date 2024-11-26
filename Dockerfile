@@ -4,7 +4,7 @@ WORKDIR /frontend
 
 COPY ./frontend/package.json ./frontend/package-lock.json ./
 
-RUN npm i
+RUN npm ci
 
 COPY ./frontend/ ./
 
@@ -30,7 +30,7 @@ ENV DOMAIN=${DOMAIN}
 
 COPY ./backend/package.json ./backend/package-lock.json ./
 
-RUN npm i
+RUN npm ci
 
 COPY ./backend/ ./
 
