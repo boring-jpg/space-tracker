@@ -17,7 +17,7 @@ FROM node:20 AS backend
 WORKDIR /backend
 
 ENV NODE_ENV="production"
-ENV PORT='5000'
+ENV PORT='10000'
 
 ARG MONGO
 ENV MONGO=${MONGO}
@@ -36,6 +36,6 @@ COPY ./backend/ ./
 
 COPY --from=frontend /frontend/dist /backend/public
 
-EXPOSE 5000
+EXPOSE 10000
 
 CMD ["npm", "start"]
