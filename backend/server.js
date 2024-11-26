@@ -5,22 +5,31 @@ import cors from 'cors'
 import { connectDB, sessionStore } from './config/db.js';
 import authRoutes from './routes/auth.route.js'
 import launchRoutes from './routes/launch.route.js'
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 dotenv.config();
 
 const app = express();
 const port = process.env.PORT;
 
-app.use(
-    cors({
-        origin: 'http://localhost:5173',
-        credentials: true
-    })
-);
+if(process.env.NODE_ENV === 'development'){
+    app.use(
+        cors({
+            origin: 'http://localhost:5173',
+            credentials: true
+        })
+    );
+}
+
+
 
 app.use(
     session({
-        secret: process.env.SESSION_SECRET,
+        secret: process.env.SESSION,
         resave: false,
         saveUninitialized: true,
         store: sessionStore,
@@ -49,6 +58,13 @@ app.use((err, req, res, next) => {
 
     next();
 });
+
+if(process.env.NODE_ENV === 'production'){
+    app.use(express.static('public'));
+    app.get('*', (req, res) =>{
+        res.sendFile('public/dist/index.html', {root: __dirname});
+    });
+}
 
 app.listen(port, async () => {
     

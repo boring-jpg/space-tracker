@@ -36,14 +36,20 @@ function App() {
     <>
       <Navbar loggedIn={isLoggedin} setIsLoggedIn={setIsLoggedIn}/>
       <Routes>
-        <Route path="*" element={<NotFound />} />
+        
         <Route path="/" element={<LaunchCards/>} />
         <Route path="/launch/:id" element={<LaunchDetails />} />
         <Route path="/about" element={<About />} />
-        <Route
-          path={isLoggedin ? "/favorites" : "/login"}
-          element={isLoggedin ? <Favorites loggedin={isLoggedin} /> : <Login setIsLoggedIn={setIsLoggedIn} />}
-        />
+        {isLoggedin ?
+          <Route path="/favorites" element={<Favorites />} />
+        :
+          <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
+          
+        }
+        <Route path="*" element={<NotFound />} />
+        
+      
+        
       </Routes>
     </>
   );

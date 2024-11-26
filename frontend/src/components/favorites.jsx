@@ -29,7 +29,6 @@ function Favorites(isLoggedin) {
     const fetchLaunchData = async () => {
       try {
         setIsLoading(true);
-        isLoggedin ? navigate('/login') : "";
         const favoriteList = await getFavorites();
         setPostPerPage(6);
         changeTitle("Space-Tracker" + " | " + "Loading...");
