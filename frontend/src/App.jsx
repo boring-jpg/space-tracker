@@ -8,6 +8,7 @@ import {Route, Routes} from "react-router-dom";
 import {useState, useEffect} from "react";
 import {isAuth} from "./api/backend_calls.js";
 import Favorites from "./components/favorites.jsx";
+import { NotFound } from "./components/Notfound.jsx";
 
 function App() {
   const [isLoggedin, setIsLoggedIn] = useState(false);
@@ -35,12 +36,13 @@ function App() {
     <>
       <Navbar loggedIn={isLoggedin} setIsLoggedIn={setIsLoggedIn}/>
       <Routes>
+        <Route path="*" element={<NotFound />} />
         <Route path="/" element={<LaunchCards/>} />
         <Route path="/launch/:id" element={<LaunchDetails />} />
         <Route path="/about" element={<About />} />
         <Route
-          path={isLoggedin ? "favorites" : "/login"}
-          element={isLoggedin ? <Favorites /> : <Login setIsLoggedIn={setIsLoggedIn} />}
+          path={isLoggedin ? "/favorites" : "/login"}
+          element={isLoggedin ? <Favorites loggedin={isLoggedin} /> : <Login setIsLoggedIn={setIsLoggedIn} />}
         />
       </Routes>
     </>

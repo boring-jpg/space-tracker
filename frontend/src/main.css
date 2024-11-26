@@ -557,7 +557,9 @@
 .auth-form input {
   width: 50vw;
   max-width: 600px;
+  min-width: 396px;
   height: 6vw;
+  min-height: 40px;
   max-height: 71px;
   border: none;
   outline: none;
@@ -567,18 +569,22 @@
   margin-bottom: 2rem;
 }
 .auth-form button {
+  width: 50vw;
   height: 6vw;
   max-height: 71px;
+  min-height: 40px;
+  max-width: 600px;
+  min-width: 396px;
   background-color: #000033;
   color: #FFF;
   font-family: sans-serif;
-  font-size: 1rem;
+  font-size: xx-large;
   border: none;
   margin-bottom: 1rem;
 }
 .auth-form p {
   text-align: center;
-  font-size: 3vw;
+  font-size: x-large;
   margin-bottom: 1rem;
 }
 .auth-form p a {
@@ -587,10 +593,8 @@
 .auth-form p a:visited {
   color: #000;
 }
-@media only screen and (min-width: 1200px) {
-  .auth-form p {
-    font-size: xx-large;
-  }
+.auth-submit {
+  cursor: pointer;
 }
 
 .no-favorites {
@@ -598,6 +602,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.not-found {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: x-large;
 }
 
 body {
@@ -678,6 +691,9 @@ body {
   .nav .hamburger {
     display: none;
   }
+}
+.nav .logout:hover {
+  cursor: pointer;
 }
 .nav-list {
   display: none;

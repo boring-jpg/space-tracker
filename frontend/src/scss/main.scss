@@ -1,4 +1,4 @@
-@import 'config', 'loading', 'launchDetail', 'launchCard', 'about', 'login', 'favorites';
+@import 'config', 'loading', 'launchDetail', 'launchCard', 'about', 'login', 'favorites', 'notFound';
 
 body {
     // background: linear-gradient(135deg,$secondaryColor,$thirdaryColor ,$primaryColor) fixed
@@ -78,6 +78,12 @@ body {
         
         @include for_breakpoint(tablet){
             display: none;
+        }
+    }
+
+    .logout {
+        &:hover{
+            cursor: pointer;
         }
     }
 
