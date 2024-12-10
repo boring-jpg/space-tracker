@@ -1,7 +1,6 @@
-import { getFavLaunch } from "./lldev_calls.js";
+import {getFavLaunch} from "./lldev_calls.js";
 
-
-const backendURL = "/api";
+const backendURL = "http://localhost:10000/api";
 
 export const isAuth = async () => {
   try {
@@ -46,116 +45,114 @@ export const login = async (email, password) => {
 };
 
 export const register = async (name, email, password) => {
-  try{
+  try {
     const response = await fetch(`${backendURL}/auth/register`, {
-      method: 'POST',
-      credentials: 'include',
+      method: "POST",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
         name: name,
         email: email,
-        password: password
+        password: password,
       }),
     });
 
     const data = await response.json();
     return data;
   } catch (err) {
-    console.error(err.message)
+    console.error(err.message);
   }
 };
 
 export const logout = async () => {
-  try{
+  try {
     const response = await fetch(`${backendURL}/auth/logout`, {
-      method: 'POST',
-      credentials: 'include'
+      method: "POST",
+      credentials: "include",
     });
-    if(!response.ok){
-      console.error("something went wrong")
+    if (!response.ok) {
+      console.error("something went wrong");
     }
 
-    const data = await response.json()
+    const data = await response.json();
     return data;
-    
-  } catch(e){
+  } catch (e) {
     console.error(e.message);
   }
-}
+};
 
 export const addLaunchFav = async (launchID) => {
-  try{
+  try {
     const response = await fetch(`${backendURL}/launch/addFavorite`, {
-      method: 'POST',
-      credentials: 'include',
+      method: "POST",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        launchID: launchID
-      })
+        launchID: launchID,
+      }),
     });
 
     const data = await response.json();
     return data;
-  } catch (e){
+  } catch (e) {
     console.error(e.message);
-  };
+  }
 };
 
 export const removeLaunchFav = async (launchID) => {
-  try{
+  try {
     const response = await fetch(`${backendURL}/launch/removeFavorite`, {
-      method: 'DELETE',
-      credentials: 'include',
+      method: "DELETE",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        launchID: launchID
-      })
+        launchID: launchID,
+      }),
     });
 
     const data = await response.json();
     return data;
-  } catch (e){
+  } catch (e) {
     console.error(e.message);
-  };
+  }
 };
 
 export const getUsersFavLaunch = async () => {
   try {
     const response = await fetch(`${backendURL}/launch/favorites`, {
-      method: 'GET',
-      credentials: 'include',
+      method: "GET",
+      credentials: "include",
     });
 
     const backendData = await response.json();
 
-    if(backendData.error){
-      throw new Error(`${backendData.error}`)
+    if (backendData.error) {
+      throw new Error(`${backendData.error}`);
     }
 
-    console.log(backendData)
+    console.log(backendData);
 
-    let favLaunches = []
-    backendData.data.forEach(launch => {
-      if(launch.launchID){
+    let favLaunches = [];
+    backendData.data.forEach((launch) => {
+      if (launch.launchID) {
         favLaunches.push(launch.launchID);
-      };
+      }
     });
 
-    if (favLaunches === undefined){
-      throw new Error("No favorites found.")
-    };
+    if (favLaunches === undefined) {
+      throw new Error("No favorites found.");
+    }
 
     const apiCall = await getFavLaunch(favLaunches);
 
     return apiCall;
-
-  } catch(e){
+  } catch (e) {
     console.error(e.message);
   }
 };

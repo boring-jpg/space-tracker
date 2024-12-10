@@ -1,27 +1,26 @@
 import {useState, useEffect} from "react";
-import {Link, useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import Countdown from "./utility/Countdown.jsx";
 import Loading from "./utility/loading.jsx";
 import {changeTitle} from "./utility/changeTitle.js";
 import Pagination from "./utility/Pagination.jsx";
 import React from "react";
-import { FavoriteButton } from "./utility/favoriteBtn.jsx";
-import { getUsersFavLaunch} from "../api/backend_calls.js";
+import {FavoriteButton} from "./utility/favoriteBtn.jsx";
+import {getUsersFavLaunch} from "../api/backend_calls.js";
 
-function Favorites(isLoggedin) {
+function Favorites() {
   const [launchData, setLaunchData] = useState([]);
   const [favoriteList, setFavoriteList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [postPerPage, setPostPerPage] = useState(6);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const getFavorites = async () => {
-      try{
+      try {
         const data = await getUsersFavLaunch();
         return data;
-      }catch(e){
+      } catch (e) {
         console.error(e);
       }
     };
@@ -46,15 +45,14 @@ function Favorites(isLoggedin) {
 
   if (isLoading) return <Loading />;
 
+  console.log(launchData);
 
-  console.log(launchData)
- 
-  if(launchData.length === 0) {
+  if (launchData.length === 0) {
     return (
       <main className="no-favorites">
-        <h1 >No Favorites Found</h1>
+        <h1>No Favorites Found</h1>
       </main>
-  );
+    );
   }
 
   const lastPostIndex = currentPage * postPerPage;
@@ -73,12 +71,11 @@ function Favorites(isLoggedin) {
           />
         )}
 
-
         <section className="card-container">
           {currentPosts.map((launch) => (
             <div className="card" key={launch.id}>
-                            <h2 className="card-title">{launch.rocket.configuration.full_name}</h2>
-              <Link to={`/launch/${launch.id}/`} >
+              <h2 className="card-title">{launch.rocket.configuration.full_name}</h2>
+              <Link to={`/launch/${launch.id}/`}>
                 <img
                   src={launch.image?.thumbnail_url}
                   alt={launch.name}
@@ -90,13 +87,12 @@ function Favorites(isLoggedin) {
                 <p className="card-company card-text">
                   {launch.launch_service_provider.name}
                 </p>
-                  <Countdown net={launch.net} />
-                
+                <Countdown net={launch.net} />
+
                 <p className="card-location">
                   <Link to={launch.pad.wiki_url}>{launch.pad.location.name}</Link>
                 </p>
               </div>
-              
             </div>
           ))}
         </section>
@@ -108,7 +104,6 @@ function Favorites(isLoggedin) {
             currentPage={currentPage}
           />
         )}
-
       </main>
     </>
   );
