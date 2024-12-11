@@ -28,4 +28,3 @@ jobs:
           docker login --username boringjpg --password ${{ secrets.DOCKER_HUB_TOKEN }}
           docker build . --tag boringjpg/space-tracker:latest
           docker push boringjpg/space-tracker:latest
-  

@@ -1,8 +1,8 @@
 import js from "@eslint/js";
 import globals from "globals";
 
-
-export default [  {
+export default [
+  {
     files: ["**/*.{js,jsx}"],
     languageOptions: {
       ecmaVersion: 2020,

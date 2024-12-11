@@ -1,4 +1,4 @@
-const lldevLaunches = "https://lldev.thespacedevs.com/2.3.0/launches"
+const lldevLaunches = "https://lldev.thespacedevs.com/2.3.0/launches";
 
 export const getLaunchData = async (input) => {
   const lldevAPI = `${lldevLaunches}/${input}/?limit=41`;
@@ -6,7 +6,7 @@ export const getLaunchData = async (input) => {
     const call = await fetch(lldevAPI);
     if (!call.ok) {
       throw new Error(`error making request to ${lldevAPI}`);
-    };
+    }
     const result = await call.json();
 
     let results;
@@ -18,21 +18,20 @@ export const getLaunchData = async (input) => {
 };
 
 export const getFavLaunch = async (...items) => {
-
-  console.log(items)
-  if(items[0].length === 0){
+  console.log(items);
+  if (items[0].length === 0) {
     const data = {};
     data.results = [];
     return data;
-  };
+  }
 
-  try{
-    const lldevAPI = `${lldevLaunches}/?id=${items.join(',')}`;
+  try {
+    const lldevAPI = `${lldevLaunches}/?id=${items.join(",")}`;
     const response = await fetch(lldevAPI);
 
-    if(!response.ok){
-      throw new Error(`Error making request to ${lldevAPI}`)
-    };
+    if (!response.ok) {
+      throw new Error(`Error making request to ${lldevAPI}`);
+    }
 
     const data = await response.json();
     return data;
@@ -40,5 +39,3 @@ export const getFavLaunch = async (...items) => {
     console.error(e);
   }
 };
-
-
