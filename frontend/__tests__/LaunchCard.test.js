@@ -8,7 +8,7 @@ import {getLaunchData} from "../src/api/lldev_calls.js";
 import LaunchCards from "../src/components/LaunchCard.jsx";
 import React from "react";
 
-jest.mock("../src/api/lldev_calls", () => ({
+jest.mock("../src/api/lldev_calls.js", () => ({
   __esModule: true,
   getLaunchData: jest.fn(),
 }));

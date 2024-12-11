@@ -1,5 +1,5 @@
 import {useState, useEffect} from "react";
-import Link from "react-router-dom";
+import {Link} from "react-router-dom";
 import Countdown from "./utility/Countdown.jsx";
 import {getLaunchData} from "../api/lldev_calls.js";
 import Loading from "./utility/loading.jsx";
