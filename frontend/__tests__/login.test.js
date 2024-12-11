@@ -2,10 +2,10 @@
  * @jest-environment jsdom
  */
 import {expect, it, describe, jest, beforeEach} from "@jest/globals";
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import { Login } from "../src/components/login.jsx"; 
+import {render, screen, fireEvent, waitFor} from "@testing-library/react";
+import {Login} from "../src/components/login.jsx";
 import * as backendCalls from "../src/api/backend_calls.js";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import React from "react";
 
 jest.mock("../src/api/backend_calls.js");
@@ -23,7 +23,7 @@ describe("Login component", () => {
 
   it("renders login form by default", () => {
     render(<Login setIsLoggedIn={setIsLoggedInMock} />);
-    
+
     expect(screen.getByText("Log into Account")).toBeTruthy();
     expect(screen.getByPlaceholderText("Email")).toBeTruthy();
     expect(screen.getByPlaceholderText("Password")).toBeTruthy();
@@ -45,14 +45,24 @@ describe("Login component", () => {
   it("handles form submission for login", async () => {
     render(<Login setIsLoggedIn={setIsLoggedInMock} />);
 
-    backendCalls.login.mockResolvedValue({ success: true });
+    backendCalls.login.mockResolvedValue({success: true});
 
-    fireEvent.change(screen.getByPlaceholderText("Email"), { target: { value: "it@example.com" } });
-    fireEvent.change(screen.getByPlaceholderText("Password"), { target: { value: "password123" } });
+    fireEvent.change(screen.getByPlaceholderText("Email"), {
+      target: {value: "it@example.com"},
+    });
+    fireEvent.change(screen.getByPlaceholderText("Password"), {
+      target: {value: "password123"},
+    });
 
     fireEvent.click(screen.getByText("Log In"));
 
-    await waitFor(() => expect(backendCalls.login).toHaveBeenCalledWith("it@example.com", "password123", undefined));
+    await waitFor(() =>
+      expect(backendCalls.login).toHaveBeenCalledWith(
+        "it@example.com",
+        "password123",
+        undefined
+      )
+    );
 
     expect(useNavigate()).toHaveBeenCalledWith("/");
     expect(setIsLoggedInMock).toHaveBeenCalledWith(true);
@@ -64,13 +74,17 @@ describe("Login component", () => {
     fireEvent.click(screen.getByText("Register"));
 
     // Mock successful registration response
-    backendCalls.register.mockResolvedValue({ success: true });
+    backendCalls.register.mockResolvedValue({success: true});
 
-    fireEvent.change(screen.getByPlaceholderText("Name"), { target: { value: "John Doe" } });
-    fireEvent.change(screen.getByPlaceholderText("Email"), { target: { value: "john.doe@example.com" } });
-    fireEvent.change(screen.getByPlaceholderText("Password"), { target: { value: "password123" } });
+    fireEvent.change(screen.getByPlaceholderText("Name"), {target: {value: "John Doe"}});
+    fireEvent.change(screen.getByPlaceholderText("Email"), {
+      target: {value: "john.doe@example.com"},
+    });
+    fireEvent.change(screen.getByPlaceholderText("Password"), {
+      target: {value: "password123"},
+    });
 
-    fireEvent.click(screen.getByRole("button", { name: "Register" }));
+    fireEvent.click(screen.getByRole("button", {name: "Register"}));
 
     await waitFor(() =>
       expect(backendCalls.register).toHaveBeenCalledWith(
@@ -88,17 +102,19 @@ describe("Login component", () => {
     render(<Login setIsLoggedIn={setIsLoggedInMock} />);
 
     // Mock failed login response
-    backendCalls.login.mockResolvedValue({ success: false, error: "Invalid credentials" });
+    backendCalls.login.mockResolvedValue({success: false, error: "Invalid credentials"});
 
-    fireEvent.change(screen.getByPlaceholderText("Email"), { target: { value: "invalid@example.com" } });
-    fireEvent.change(screen.getByPlaceholderText("Password"), { target: { value: "wrongpassword" } });
+    fireEvent.change(screen.getByPlaceholderText("Email"), {
+      target: {value: "invalid@example.com"},
+    });
+    fireEvent.change(screen.getByPlaceholderText("Password"), {
+      target: {value: "wrongpassword"},
+    });
 
     fireEvent.click(screen.getByText("Log In"));
 
     // Wait for error message to appear
-    await waitFor(() =>
-      expect(screen.getByText("Invalid credentials")).toBeTruthy()
-    );
+    await waitFor(() => expect(screen.getByText("Invalid credentials")).toBeTruthy());
   });
 
   it("displays error message when registration fails", async () => {
@@ -108,17 +124,22 @@ describe("Login component", () => {
     fireEvent.click(screen.getByText("Register"));
 
     // Mock failed registration response
-    backendCalls.register.mockResolvedValue({ success: false, error: "Email already in use" });
+    backendCalls.register.mockResolvedValue({
+      success: false,
+      error: "Email already in use",
+    });
 
-    fireEvent.change(screen.getByPlaceholderText("Name"), { target: { value: "Jane Doe" } });
-    fireEvent.change(screen.getByPlaceholderText("Email"), { target: { value: "jane.doe@example.com" } });
-    fireEvent.change(screen.getByPlaceholderText("Password"), { target: { value: "password123" } });
+    fireEvent.change(screen.getByPlaceholderText("Name"), {target: {value: "Jane Doe"}});
+    fireEvent.change(screen.getByPlaceholderText("Email"), {
+      target: {value: "jane.doe@example.com"},
+    });
+    fireEvent.change(screen.getByPlaceholderText("Password"), {
+      target: {value: "password123"},
+    });
 
     fireEvent.click(screen.getByText("Register"));
 
     // Wait for error message to appear
-    await waitFor(() =>
-      expect(screen.getByText("Email already in use")).toBeTruthy()
-    );
+    await waitFor(() => expect(screen.getByText("Email already in use")).toBeTruthy());
   });
 });

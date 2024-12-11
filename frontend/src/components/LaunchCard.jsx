@@ -1,5 +1,5 @@
 import {useState, useEffect} from "react";
-import {Link, useNavigate} from "react-router-dom";
+import Link from "react-router-dom";
 import Countdown from "./utility/Countdown.jsx";
 import {getLaunchData} from "../api/lldev_calls.js";
 import Loading from "./utility/loading.jsx";
@@ -7,8 +7,8 @@ import {changeTitle} from "./utility/changeTitle.js";
 import Pagination from "./utility/Pagination.jsx";
 
 import React from "react";
-import { FavoriteButton } from "./utility/favoriteBtn.jsx";
-import { getUsersFavLaunch} from "../api/backend_calls.js";
+import {FavoriteButton} from "./utility/favoriteBtn.jsx";
+import {getUsersFavLaunch} from "../api/backend_calls.js";
 
 function LaunchCards() {
   const [launchData, setLaunchData] = useState([]);
@@ -19,10 +19,10 @@ function LaunchCards() {
 
   useEffect(() => {
     const getFavorites = async () => {
-      try{
+      try {
         const data = await getUsersFavLaunch();
         return data;
-      }catch(e){
+      } catch (e) {
         console.error(e);
       }
     };
@@ -40,8 +40,6 @@ function LaunchCards() {
         changeTitle("Space-Tracker");
       } catch (err) {
         console.error(err);
-        
-        
       } finally {
         setIsLoading(false);
       }
@@ -69,8 +67,8 @@ function LaunchCards() {
         <section className="card-container">
           {currentPosts.map((launch) => (
             <div className="card" key={launch.id}>
-                            <h2 className="card-title">{launch.rocket.configuration.full_name}</h2>
-              <Link to={`/launch/${launch.id}/`} >
+              <h2 className="card-title">{launch.rocket.configuration.full_name}</h2>
+              <Link to={`/launch/${launch.id}/`}>
                 <img
                   src={launch.image?.thumbnail_url}
                   alt={launch.name}
@@ -82,13 +80,12 @@ function LaunchCards() {
                 <p className="card-company card-text">
                   {launch.launch_service_provider.name}
                 </p>
-                  <Countdown net={launch.net} />
-                
+                <Countdown net={launch.net} />
+
                 <p className="card-location">
                   <Link to={launch.pad.wiki_url}>{launch.pad.location.name}</Link>
                 </p>
               </div>
-              
             </div>
           ))}
         </section>

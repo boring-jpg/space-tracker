@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import {useState, useEffect} from "react";
-import { logout } from "../api/backend_calls";
+import {logout} from "../api/backend_calls";
 import {Link, useNavigate} from "react-router-dom";
 import React from "react";
 
@@ -26,17 +26,17 @@ function Navbar({loggedIn, setIsLoggedIn}) {
     );
   };
 
-  const handleLogout = async() => {
-    try{
+  const handleLogout = async () => {
+    try {
       const response = await logout();
-      if (await response.success === true){
+      if ((await response.success) === true) {
         setIsLoggedIn(false);
         navigate(0);
       }
-      if(response.success === false) {
+      if (response.success === false) {
         alert(response.error);
       }
-    } catch (e){
+    } catch (e) {
       console.error(e);
       alert("An error occurred while logging out." + ` ${e}`);
     }
@@ -70,7 +70,8 @@ function Navbar({loggedIn, setIsLoggedIn}) {
       <ul
         className={
           isOpen && windowSize.innerWidth <= 767 ? "nav-list isOpen" : "nav-list"
-        }>
+        }
+      >
         <div className={windowSize.innerWidth <= 767 ? "mobile-nav" : "desktop-nav"}>
           <CustomLink href={loggedIn ? "/favorites" : "/login"}>
             {loggedIn ? "Favorites" : "Login"}
@@ -78,14 +79,18 @@ function Navbar({loggedIn, setIsLoggedIn}) {
           <CustomLink href="/about">About</CustomLink>
           {loggedIn ? (
             <li>
-              <a className="logout" onClick={
-                () => {
+              <a
+                className="logout"
+                onClick={() => {
                   handleLogout();
-                }
-              }>Logout</a>
+                }}
+              >
+                Logout
+              </a>
             </li>
-          ) :
-          ""}
+          ) : (
+            ""
+          )}
         </div>
       </ul>
     </nav>
@@ -96,7 +101,7 @@ Navbar.propTypes = {
   href: PropTypes.string,
   children: PropTypes.string,
   loggedIn: PropTypes.bool,
-  setIsLoggedIn: PropTypes.func
+  setIsLoggedIn: PropTypes.func,
 };
 
 export default Navbar;

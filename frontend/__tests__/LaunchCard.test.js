@@ -48,7 +48,7 @@ describe(LaunchCards, () => {
   it("should display loading on mount", async () => {
     getLaunchData.mockResolvedValueOnce([]);
 
-    render(<LaunchCards favorites={false}/>);
+    render(<LaunchCards favorites={false} />);
 
     const main = screen.getByRole("main");
     expect(main.classList.contains("loading-page")).toBeTruthy();
@@ -74,7 +74,7 @@ describe(LaunchCards, () => {
     await act(async () => {
       render(
         <MemoryRouter>
-          <LaunchCards favorites={false}/>
+          <LaunchCards favorites={false} />
         </MemoryRouter>
       );
     });
