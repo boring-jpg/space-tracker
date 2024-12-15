@@ -45,7 +45,6 @@ function Favorites() {
 
   if (isLoading) return <Loading />;
 
-  console.log(launchData);
 
   if (launchData.length === 0) {
     return (

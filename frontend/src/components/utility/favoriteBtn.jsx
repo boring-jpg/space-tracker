@@ -11,7 +11,6 @@ export const FavoriteButton = ({launchID, favoriteList}) => {
   const handleUnFav = async () => {
     try {
       const response = await removeLaunchFav(launchID);
-      console.log(response);
       if (response.error) {
         return navigate("/login");
       }

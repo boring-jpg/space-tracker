@@ -31,7 +31,6 @@ function LaunchCards() {
       try {
         setIsLoading(true);
         const favoriteList = await getFavorites();
-        console.log(favoriteList);
         setPostPerPage(6);
         changeTitle("Space-Tracker" + " | " + "Loading...");
         const data = await getLaunchData("upcoming");
