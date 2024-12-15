@@ -18,7 +18,6 @@ export const Login = ({setIsLoggedIn}) => {
     const queryBackend = async (name, email, pass) => {
       if (isRegistering) {
         const response = await register(name, email, pass);
-        console.log(response);
         if (response.success === true) {
           navigate(0);
         }

@@ -15,7 +15,6 @@ function LaunchDetails() {
         changeTitle("Space-Tracker" + " | " + "Loading...");
         const launchId = window.location.pathname.split("/")[2];
         const data = await getLaunchData(launchId);
-        console.log(data);
         setLaunchDetails(data);
         changeTitle("Space-Tracker" + " | " + data.name);
       } catch (error) {
