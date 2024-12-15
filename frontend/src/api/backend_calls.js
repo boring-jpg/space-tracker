@@ -1,6 +1,6 @@
 import {getFavLaunch} from "./lldev_calls.js";
 
-const backendURL = "/api";
+const backendURL = "http://localhost:10000/api";
 
 export const isAuth = async () => {
   try {
