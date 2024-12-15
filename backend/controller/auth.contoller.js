@@ -3,7 +3,6 @@ import User from "../models/user.model.js";
 
 export const loginUser = async (req, res) => {
   const { email, password } = req.body;
-  console.log(req.session);
   try {
     const user = await User.findOne({ email: email });
 

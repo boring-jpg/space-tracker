@@ -9,7 +9,6 @@ export const addFavorite = async (req, res) => {
       favLaunches: { $elemMatch: { launchID: launchID } },
     });
 
-    console.log(itemExists[0]);
     if (itemExists[0] !== undefined) {
       return res.status(400).json({
         success: false,
@@ -52,7 +51,6 @@ export const removeFavorite = async (req, res) => {
       favLaunches: { $elemMatch: { launchID: launchID } },
     });
 
-    console.log(itemExists);
 
     if (itemExists[0] === undefined) {
       return res.status(400).json({
@@ -98,7 +96,6 @@ export const showFavorite = async (req, res) => {
     }
 
     const currentUser = await User.findById(userID);
-    console.log(currentUser);
 
     if (!currentUser) {
       res.status(400).json({
